@@ -1,9 +1,23 @@
 {
     "cSpell.words": [
+        "allauth",
         "asgiref",
+        "cachetools",
+        "certifi",
         "dishshare",
+        "idna",
+        "ksfdl",
+        "protos",
+        "psycopg",
+        "pyasn",
+        "pyparsing",
         "setuptools",
         "sqlparse",
+        "summernote",
+        "uritemplate",
+        "urllib",
+        "webencodings",
+        "whitenoise",
         "zdvqilcwwlwtzt"
     ]
 }
