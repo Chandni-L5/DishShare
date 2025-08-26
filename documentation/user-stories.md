@@ -39,3 +39,16 @@
 **Favorite recipes**: As a Site User I can store favorite recipes so that I can easily return back to them
 > **AC1** Given a logged in user, they can favorite a recipe  
 > **AC2** Given a logged in user, they can access a list of favorited recipes
+
+**User Submissions Control**: As a Site User I can view my submissions separately so that I can easily locate my own content
+> **AC1** Given a logged in user, They can access a list of their own submissions  
+> **AC2** and edit previous posts  
+> **AC3** or delete previous posts 
+
+**Navbar and Footer**: As a Site User I can navigate through the site and access social media so that I can find relevant content  
+> **AC1** Navbar items: Logged out - Favicon linking to homepage, Recipes, Register/Login   
+> **AC2** Navbar items: Logged in - Favicon linking to homepage, Recipes, My Recipes, Logout  
+> **AC3** Footer: Links to DishShare - Instagram, Facebook and X 
+
+**Responsive**  
+> **AC1** The site is responsive on different screen sizes
