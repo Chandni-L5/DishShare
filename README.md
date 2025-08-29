@@ -87,7 +87,75 @@ To support estimation, I have assigned story points based on a Fibonacci methodo
 <!--  -->
 
 ### Wireframes
-<!--  -->
+Wireframes have been created with desktop, tablet and mobile viewports in mind. I have used [Canva](https://www.canva.com/) to plan the layout and user flow of the application.
+
+<details>
+<summary>🏡 Homepage when not logged in</summary>
+
+![Wireframe of homepage -  website - when not logged in](/documentation/images/wireframes/website/wireframe-homepage-loggedout-website.webp)
+![Wireframe of homepage - tablet - when not logged in](/documentation/images/wireframes/tablet/wireframe-homepage-loggedout-tablet.webp)
+![Wireframe of homepage - mobile - when not logged in](/documentation/images/wireframes/mobile/wireframe-homepage-loggedout-mobile.webp)
+</details>
+
+<details>
+<summary> 🏡 Homepage when logged in</summary>
+
+![Wireframe of homepage -  website - when logged in](/documentation/images/wireframes/website/wireframe-homepage-loggedin-website.webp)
+![Wireframe of homepage - tablet - when logged in](/documentation/images/wireframes/tablet/wireframe-homepage-loggedin-tablet.webp)
+![Wireframe of homepage - mobile - when logged in](/documentation/images/wireframes/mobile/wireframe-homepage-loggedin-mobile.webp)
+</details>
+
+<details>
+<summary> 🔐 Login page and Registration page</summary>
+
+![Wireframe of the login page -  website](/documentation/images/wireframes/website/wireframe-loginreg1-website.webp)
+![Wireframe of the registration/sign-up page -  website](/documentation/images/wireframes/website/wireframe-loginreg2-website.webp)
+![Wireframes of the login page and registration/sign-up page - tablet](/documentation/images/wireframes/tablet/wireframe-loginreg-tablet.webp)
+![Wireframes of the login page and registration/sign-up page - mobile](/documentation/images/wireframes/mobile/wireframe-loginreg-mobile.webp)
+</details>
+
+<details>
+<summary> 🍔 Navigation dropdown </summary>
+
+![Wireframe of the dropdown navigation menu from the burger button - tablet](/documentation/images/wireframes/tablet/wireframe-brgmenu-tablet.webp)
+![Wireframe of the dropdown navigation menu from the burger button - mobile](/documentation/images/wireframes/mobile/wireframe-brgmenu-mobile.webp)
+</details>
+
+<details>
+<summary> 📚 Recipes Hub </summary>
+
+![Wireframe of the recipes hub page -  website](/documentation/images/wireframes/website/wireframe-recipehub-website.webp)
+![Wireframe of the recipes hub page - tablet](/documentation/images/wireframes/tablet/wireframe-recipehub-tablet.webp)
+![Wireframe of the recipes hub page - mobile](/documentation/images/wireframes/mobile/wireframe-recipehub-mobile.webp)
+</details>
+
+<details>
+<summary> 📕 Recipe template </summary>
+
+![Wireframe of a template of a recipe page -  website](/documentation/images/wireframes/website/wireframe-recipetemplate-website.webp)
+![Wireframe of a template of a recipe page - part 1 - tablet](/documentation/images/wireframes/tablet/wireframe-recipetemplate1-tablet.webp)
+![Wireframe of a template of a recipe page - part 2 - tablet](/documentation/images/wireframes/tablet/wireframe-recipetemplate2-tablet.webp)
+![Wireframe of a template of a recipe page - part 1 - mobile](/documentation/images/wireframes/mobile/wireframe-recipetemplate-mobile.webp)
+![Wireframe of a template of a recipe page - part 2 - mobile](/documentation/images/wireframes/mobile/wireframe-recipetemplate2-mobile.webp)
+</details>
+
+<details>
+<summary> 📋 Recipe submission form </summary>
+
+![Wireframe of the recipe submission form -  website](/documentation/images/wireframes/website/wireframe-submitrecipe-website.webp)
+![Wireframe of the recipe submission form - tablet](/documentation/images/wireframes/tablet/wireframe-submitrecipe-tablet.webp)
+![Wireframe of the recipe submission form - part 1 - mobile](/documentation/images/wireframes/mobile/wireframe-submitrecipe-mobile.webp)
+![Wireframe of the recipe submission form - part 2 - mobile](/documentation/images/wireframes/mobile/wireframe-submitrecipe2-mobile.webp)
+</details>
+
+<details>
+<summary> 💁🏽 Your recipes page </summary>
+
+![Wireframe of the personalized your recipes page -  website](/documentation/images/wireframes/website/wireframe-yourrecipes-website.webp)
+![Wireframes of the personalized your recipes page - tablet](/documentation/images/wireframes/tablet/wireframe-yourrecipes-tablet.webp)
+![Wireframe of the personalized your recipes page - part 1 - mobile](/documentation/images/wireframes/mobile/wireframe-yourrecipes1-mobile.webp)
+![Wireframe of the personalized your recipes page - part 2 - mobile](/documentation/images/wireframes/mobile/wireframe-yourrecipes2-mobile.webp)
+</details>
 
 - - - 
 
