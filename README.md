@@ -192,13 +192,17 @@ During the designing and styling process of the website, I have kept in mind to 
 
 * Semantic HTML -Use of descriptive alt attributes on the images used throughout the site. 
 
- * I have checked the colour scheme used on the application using [coolors.co](https://coolors.co/contrast-checker/112a46-acc8e5) to assess the contrast of the colours used. 
+* I have checked the colour scheme used on the application using [coolors.co](https://coolors.co/contrast-checker/112a46-acc8e5) to assess the contrast of the colours used. 
 
- ![screenshot of colour contrast comparison - 1](/documentation/images/colour-contrast-1.webp)
+<details>
+<summary> Click to view results of colour contrast comparison</summary>
+
+![screenshot of colour contrast comparison - 1](/documentation/images/colour-contrast-1.webp)
 ![screenshot of colour contrast comparison - 2](/documentation/images/colour-contrast-2.webp)
 ![screenshot of colour contrast comparison - 3](/documentation/images/color-contrast-3.webp) 
 ![screenshot of colour contrast comparison - 4](/documentation/images/colour-contrast-4.webp)
 ![screenshot of colour contrast comparison - 5](/documentation/images/color-contrast-5.webp)
+</details>
 
 - - - 
 
@@ -229,7 +233,38 @@ During the designing and styling process of the website, I have kept in mind to 
 - - - 
 
 ## Deployment
-<!--  -->
+
+### Deploy to GitHub
+
+1. Log in to GitHub and navigate to the [DishShare repository](https://github.com/Chandni-L5/DishShare)
+2. Click the settings button.
+3. Select pages in the left hand navigation menu. 
+4. From the source dropdown select 'Deploy from a branch' and in the branch dropdown select 'main' and press save.
+5. The site has now been deployed.
+6. When returning to the code page in the repository a Deployments section will appear in the right side column - this process may take a few minutes before the site goes live. The deployed sight can be accessed via this link.
+
+### Deploy to Heroku 
+Deployed to Heroku:
+
+1. Create a new Heroku app.
+2. Connect the app to this GitHub repo.
+3. Set Config Vars (see below).
+4. Push to main to trigger a build & deploy.
+
+This site is deployed via Heroku with PostgreSQL database, Cloudinary for media storage, and Whitenoise for static files.
+
+### Fork the Repository
+To create your own copy of this project:
+1. Log in to GitHub and navigate to the [DishShare repository](https://github.com/Chandni-L5/DishShare)
+2. Click the "Fork" button in the top right corner of the page
+3. Make your desired changes to your copy of the repository
+
+### Clone the Repository
+To create a local copy on your machine:
+```bash
+git clone https://github.com/Chandni-L5/DishShare
+cd DishShare
+```
 
 - - - 
 
