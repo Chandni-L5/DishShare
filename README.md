@@ -78,7 +78,14 @@ To support estimation, I have assigned story points based on a Fibonacci methodo
 ## Design
 
 ### Colour Scheme 
-<!--  -->
+I used [coolors.co](https://coolors.co/) to create a colour palette to apply to the site. 
+
+These colours have been selected with the concept of 'farm fresh' in mind. They are vibrant, lively, and are reminiscent of the natural hues commonly seen in a greengrocer’s display, creating an inviting and warm experience for the user.
+
+![colour-palette 1](/documentation/images/colour-palette-1.webp)
+![colour-palette 2](/documentation/images/colour-palette-2.webp)
+
+The colours have also been assessed using a contrast checker to ensure they pass all visibility checks and improve user experience. Please see the [Accessibility](#accessibility) section of of this document for results of the contrast checks.
 
 ### Typography 
 <!--  -->
@@ -172,7 +179,18 @@ Wireframes have been created with desktop, tablet and mobile viewports in mind. 
 <!--  -->
 
 ### Accessibility 
-<!--  -->
+
+During the designing and styling process of the website, I have kept in mind to aim to make the page as user friendly and accessible as possible. I have achieved this by:
+
+* Semantic HTML -Use of descriptive alt attributes on the images used throughout the site. 
+
+ * I have checked the colour scheme used on the application using [coolors.co](https://coolors.co/contrast-checker/112a46-acc8e5) to assess the contrast of the colours used. 
+
+ ![screenshot of colour contrast comparison - 1](/documentation/images/colour-contrast-1.webp)
+![screenshot of colour contrast comparison - 2](/documentation/images/colour-contrast-2.webp)
+![screenshot of colour contrast comparison - 3](/documentation/images/color-contrast-3.webp) 
+![screenshot of colour contrast comparison - 4](/documentation/images/colour-contrast-4.webp)
+![screenshot of colour contrast comparison - 5](/documentation/images/color-contrast-5.webp)
 
 - - - 
 

@@ -4,6 +4,7 @@
         "asgiref",
         "bitesize",
         "cachetools",
+        "Canva",
         "certifi",
         "dishshare",
         "favorited",
@@ -20,6 +21,7 @@
         "summernote",
         "uritemplate",
         "urllib",
+        "viewports",
         "webencodings",
         "whitenoise",
         "zdvqilcwwlwtzt"
