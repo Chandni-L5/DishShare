@@ -97,9 +97,9 @@ The colours have also been assessed using a contrast checker to ensure they pass
 <!-- insert images of examples and text to explain why this one has been selected -->
 
 ### Imagery
-Some of the images used throughout the site were sourced from [pexels.com](https://www.pexels.com/). Images from this source are licensed for free use.
+Some of the images used throughout the site were sourced from [pexels.com](https://www.pexels.com/). Images from this source are licensed for free use. I have also used [Sora](https://sora.chatgpt.com/explore) to create some AI images.
 
-I also used [befunky.com](https://www.befunky.com/) to resize the images.
+ [befunky.com](https://www.befunky.com/) has been used to resize the images.
 
 ### Wireframes
 Wireframes have been created with desktop, tablet and mobile viewports in mind. I have used [Canva](https://www.canva.com/) to plan the layout and user flow of the application.
@@ -308,6 +308,7 @@ cd DishShare
 <!-- - [Font Awesome](https://fontawesome.com/) -->
 - [befunky.com](https://www.befunky.com/dashboard/) - to resize images
 - [pexels.com](https://www.pexels.com/) - to source images
+- [Sora](https://sora.chatgpt.com/explore) - to create AI images
 - [Cloudconvert](https://cloudconvert.com/jpg-to-webp) - to convert images to different file types. 
 
 ### Documentation and testing
