@@ -88,10 +88,18 @@ These colours have been selected with the concept of 'farm fresh' in mind. They 
 The colours have also been assessed using a contrast checker to ensure they pass all visibility checks and improve user experience. Please see the [Accessibility](#accessibility) section of of this document for results of the contrast checks.
 
 ### Typography 
-<!--  -->
+[Google Fonts](https://fonts.google.com/) are used to apply the following fonts:
+
+#### Montserrat 
+<!-- insert images of examples and text to explain why this one has been selected -->
+
+#### Montserrat Alternates
+<!-- insert images of examples and text to explain why this one has been selected -->
 
 ### Imagery
-<!--  -->
+Some of the images used throughout the site were sourced from [pexels.com](https://www.pexels.com/). Images from this source are licensed for free use.
+
+I also used [befunky.com](https://www.befunky.com/) to resize the images.
 
 ### Wireframes
 Wireframes have been created with desktop, tablet and mobile viewports in mind. I have used [Canva](https://www.canva.com/) to plan the layout and user flow of the application.
@@ -196,11 +204,27 @@ During the designing and styling process of the website, I have kept in mind to 
 
 ## Technologies Used
 
-### Languages Used 
-<!--  -->
-
-### Frameworks, Libraries & Programs Used
-<!--  -->
+- **Frontend:** HTML, CSS, JavaScript, Bootstrap
+- **Backend:** Python, Django 
+- **Database:** PostgreSQL
+- **Development Tools:**
+    - [GitHub](https://github.com/) - for version control
+    - [VS Code](https://code.visualstudio.com/) - for development
+    - [Canva](https://www.canva.com/) - for wireframes
+    - [Heroku](https://dashboard.heroku.com/) - for deployment 
+    - [Favicon.io](https://favicon.io/) - for favicon creation
+    - [Google Fonts](https://fonts.google.com/)
+    - [Code Institute Pep8 linter](https://pep8ci.herokuapp.com/) for Python validation
+    - [W3C HTML Validator](https://validator.w3.org/) for HTML validation
+    - [Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/) for CSS validation
+    - Chrome Dev Tools for debugging
+    - Chrome Lighthouse for performance testing
+- **Django Packages**
+    - django-allauth
+    - django-crispy-forms
+    - Cloudinary storage
+    - WhiteNoise
+    - Gunicorn
 
 - - - 
 
@@ -240,13 +264,30 @@ During the designing and styling process of the website, I have kept in mind to 
 <!--  -->
 
 ### Content
-<!--  -->
+- [Chatgpt](https://chatgpt.com/) 
+- [Google fonts](https://fonts.google.com/) 
+- [Favicon.io](https://favicon.io/emoji-favicons/) - to create an emoji favicon
 
-### Media 
-<!--  -->
 
-### Documentation and Testing 
-<!--  -->
+### Media
+<!-- - [Font Awesome](https://fontawesome.com/) -->
+- [befunky.com](https://www.befunky.com/dashboard/) - to resize images
+- [pexels.com](https://www.pexels.com/) - to source images
+- [Cloudconvert](https://cloudconvert.com/jpg-to-webp) - to convert images to different file types. 
+
+### Documentation and testing
+I have used the following sources to help guide and structure the documentation of this project.
+- [The love running readme template](https://github.com/Code-Institute-Solutions/readme-template?tab=readme-ov-file) 
+- [A markdown cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#tables)
+- [Kera Cudmore's readme template](https://github.com/kera-cudmore/readme-examples/blob/main/milestone1-readme.md) - shared on slack
+- [Diffchecker](https://www.diffchecker.com/)
+- [W3C](https://validator.w3.org/)
+-[Autoprefixer](https://autoprefixer.github.io/)
+- [Gyazo](https://gyazo.com/en) plugin- to create gifs to use in the testing documentation
+- [Web Disability Simulator](https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla) 
+- [Amiresponsive](https://ui.dev/amiresponsive) - to show the website on a range of device screens
+- [coolors.co](https://coolors.co/contrast-checker/112a46-acc8e5) - to compare colour contrast
+- [Canva](https://www.canva.com/) - to create wireframes 
 
 ### Acknowledgements
 <!--  -->
