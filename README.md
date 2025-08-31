@@ -15,6 +15,8 @@ The aim of this website is to provide an intuitive, responsive and rich communit
 
 Users are able to log in and create a personalized list of their favorite item, submit their own content, and interact with other user's contents through the format of likes, dislikes and comments.
 
+The target audience for this application ranges from newbies to cooking, seasoned home-cooks seeking inspiration to seasoned chefs looking to share their expertise. There are no limitations such as age groups or experience and the idea is to bring together people with the common interest of food and cooking.
+
 ### Scope 
 
 #### User Features:
@@ -72,6 +74,31 @@ To support estimation, I have assigned story points based on a Fibonacci methodo
 
 #### Velocity
 <!-- To be completed after the first few iterations -->
+
+### Database Design
+
+#### ERD
+![Image of the ERD](/documentation/images/erd.webp)
+<!-- replace above image with the final up to date version -->
+The application is built around four main entities: 
+- **User** - A user can submit recipes, leave comments & favorite recipes and upvote or downvote once on many recipes.
+- **Recipe** - A Recipe belongs to one user but can receive many comments, favorites and upvotes/downvotes.
+- **Comment** - A comment belongs to one user and can be entered on a single recipe.
+- **Favorite** A favorite acts a bridge between User and Recipes. All the favorites will result in a personalized display for each user.
+
+#### Relational Data Model
+- Each entity will be stored as a table in the relational CI database PostgreSQL.
+- Each record row will represent a single instance of that entity
+- Each attribute column will store the data about that record 
+- The relationships between the models will be linked using `ForeignKey`'s
+
+#### Database Schema
+The application applies a relational scheme which is managed by Django's ORM.
+- **Conceptual** - 4 main entities 
+- **Logical** - Database tables with relationships between primary keys and foreign keys
+- **Physical** - the resulting database created by Django migration
+
+The schema ensures that all the data has a clear and defined structure, which is consistent and simple to query whilst reducing the need to duplicate data requests.
 
 - - -
 
@@ -175,10 +202,6 @@ Wireframes have been created with desktop, tablet and mobile viewports in mind. 
 - - - 
 
 ## Features
-
-### Data Model
-#### ERD
-
 ### General Features
 #### All Pages
 <!--  -->
@@ -214,7 +237,7 @@ During the designing and styling process of the website, I have kept in mind to 
 - **Development Tools:**
     - [GitHub](https://github.com/) - for version control
     - [VS Code](https://code.visualstudio.com/) - for development
-    - [Canva](https://www.canva.com/) - for wireframes
+    - [Canva](https://www.canva.com/) - for wireframes and ERD
     - [Heroku](https://dashboard.heroku.com/) - for deployment 
     - [Favicon.io](https://favicon.io/) - for favicon creation
     - [Google Fonts](https://fonts.google.com/)
@@ -310,6 +333,7 @@ cd DishShare
 - [pexels.com](https://www.pexels.com/) - to source images
 - [Sora](https://sora.chatgpt.com/explore) - to create AI images
 - [Cloudconvert](https://cloudconvert.com/jpg-to-webp) - to convert images to different file types. 
+- [toWebP](https://towebp.io/) - to convert different file types
 
 ### Documentation and testing
 I have used the following sources to help guide and structure the documentation of this project.
@@ -323,7 +347,7 @@ I have used the following sources to help guide and structure the documentation 
 - [Web Disability Simulator](https://chromewebstore.google.com/detail/web-disability-simulator/olioanlbgbpmdlgjnnampnnlohigkjla) 
 - [Amiresponsive](https://ui.dev/amiresponsive) - to show the website on a range of device screens
 - [coolors.co](https://coolors.co/contrast-checker/112a46-acc8e5) - to compare colour contrast
-- [Canva](https://www.canva.com/) - to create wireframes 
+- [Canva](https://www.canva.com/) - to create wireframes and ERD
 
 ### Acknowledgements
 <!--  -->
