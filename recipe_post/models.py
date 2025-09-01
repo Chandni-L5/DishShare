@@ -40,3 +40,14 @@ class RecipePost(models.Model):
     approved = models.BooleanField(default=False)
     status = models.IntegerField(choices=STATUS, default=0)
     summary = models.TextField(max_length=500, blank=True)
+
+
+class Comment(models.Model):
+    recipe = models.ForeignKey(
+        RecipePost, on_delete=models.CASCADE, related_name='comments'
+    )
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    content = models.TextField()
+    created_on = models.DateField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
+    status = models.IntegerField(choices=STATUS, default=0)
