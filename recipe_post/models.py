@@ -11,6 +11,8 @@ STATUS = ((0, "Draft"), (1, "Published"))
 class RecipePost(models.Model):
     """
     Stores a single recipe post entry related to :model:`auth.User`.
+    Meta: Orders the list of recipe posts by creation date.
+    Methods: Returns a string representation of the recipe post.
     """
     recipe_id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=250)
@@ -49,6 +51,12 @@ class RecipePost(models.Model):
 
 
 class Comment(models.Model):
+    """
+    Stores a single comment entry related to :model:`recipe_post.RecipePost`.
+    Meta: Orders the list of comments by creation date.
+    Methods: returns a string indicating which recipe the comment is
+    associated with.
+    """
     recipe = models.ForeignKey(
         RecipePost, on_delete=models.CASCADE, related_name='comments'
     )

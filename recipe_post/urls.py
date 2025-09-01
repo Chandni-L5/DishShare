@@ -1,6 +1,7 @@
-from django.urls import path
 from . import views
+from django.urls import path
+
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.RecipePostList.as_view(), name='recipe-hub'),
 ]
