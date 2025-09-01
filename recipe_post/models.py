@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator
+from cloudinary.models import CloudinaryField
 
 
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -15,7 +16,7 @@ class RecipePost(models.Model):
     title = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='recipes/')
+    image = CloudinaryField('image')
     difficulty = models.CharField(max_length=100, choices=[
         ('easy', 'Easy peasy'),
         ('medium', 'Medium rare'),
