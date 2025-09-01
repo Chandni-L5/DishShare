@@ -4,7 +4,7 @@ from .models import RecipePost
 
 
 # Create your views here.
-class RecipePostList(generic.ListView):
+class RecipeHubList(generic.ListView):
     # query set order to be amended once separate vote method is created
-    queryset = RecipePost.objects.order_by('-created_on')
+    queryset = RecipePost.objects.order_by('-created_on').filter(status=1)
     template_name = 'recipe_post/recipe_hub.html'
