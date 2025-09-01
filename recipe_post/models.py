@@ -41,6 +41,12 @@ class RecipePost(models.Model):
     status = models.IntegerField(choices=STATUS, default=0)
     summary = models.TextField(max_length=500, blank=True)
 
+    class Meta:
+        ordering = ['-created_on']
+
+    def __str__(self):
+        return self.title
+
 
 class Comment(models.Model):
     recipe = models.ForeignKey(
@@ -51,3 +57,9 @@ class Comment(models.Model):
     created_on = models.DateField(auto_now_add=True)
     approved = models.BooleanField(default=False)
     status = models.IntegerField(choices=STATUS, default=0)
+
+    class Meta:
+        ordering = ['-created_on']
+
+    def __str__(self):
+        return f"on {self.recipe.title}"
