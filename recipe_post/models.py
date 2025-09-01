@@ -38,10 +38,12 @@ class RecipePost(models.Model):
     )
     method = models.TextField(
         help_text="Please enter each step on a new line.")
+    summary = models.TextField(max_length=500, blank=True)
     created_on = models.DateField(auto_now_add=True)
     approved = models.BooleanField(default=False)
     status = models.IntegerField(choices=STATUS, default=0)
-    summary = models.TextField(max_length=500, blank=True)
+
+
 
     class Meta:
         ordering = ['-created_on']
