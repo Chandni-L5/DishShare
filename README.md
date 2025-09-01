@@ -102,7 +102,7 @@ The schema ensures that all the data has a clear and defined structure, which is
 
 - - -
 
-## Design
+## UI Design
 
 ### Colour Scheme 
 I used [coolors.co](https://coolors.co/) to create a colour palette to apply to the site. 
@@ -117,10 +117,10 @@ The colours have also been assessed using a contrast checker to ensure they pass
 ### Typography 
 [Google Fonts](https://fonts.google.com/) are used to apply the following fonts:
 
-#### Montserrat 
+- Montserrat 
 <!-- insert images of examples and text to explain why this one has been selected -->
 
-#### Montserrat Alternates
+- Montserrat Alternates
 <!-- insert images of examples and text to explain why this one has been selected -->
 
 ### Imagery
@@ -252,6 +252,7 @@ During the designing and styling process of the website, I have kept in mind to 
     - Cloudinary storage
     - WhiteNoise
     - Gunicorn
+    - Pillow
 
 - - - 
 

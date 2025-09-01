@@ -1,3 +1,40 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.core.validators import MinValueValidator
+
+
+STATUS = ((0, "Draft"), (1, "Published"))
+
 
 # Create your models here.
+class RecipePost(models.Model):
+    recipe_id = models.AutoField(primary_key=True)
+    title = models.CharField(max_length=250)
+    slug = models.SlugField(max_length=250, unique=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='recipes/')
+    difficulty = models.CharField(max_length=100, choices=[
+        ('easy', 'Easy peasy'),
+        ('medium', 'Medium rare'),
+        ('hard', 'Hard boiled'),
+    ])
+    duration = models.PositiveIntegerField(
+        validators=[
+            MinValueValidator(1, message="Duration must be at least 1 minute.")
+        ], help_text="Please enter the cooking time in minutes."
+    )
+    ingredients = models.TextField(
+        help_text=(
+            "Enter ingredients with measurements,"
+            "one per line, separated by a comma "
+            "(e.g., '200g flour, '2tbsp sugar')."
+        )
+    )
+    method = models.TextField(
+        help_text="Please enter each step on a new line.")
+    heart_count_faves = models.ManyToManyField(
+        User, related_name='favorite_recipes', blank=True
+    )
+    created_on = models.DateField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
+    status = models.IntegerField(choices=STATUS, default=0)
