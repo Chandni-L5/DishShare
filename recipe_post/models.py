@@ -8,6 +8,9 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 # Create your models here.
 class RecipePost(models.Model):
+    """
+    Stores a single recipe post entry related to :model:`auth.User`.
+    """
     recipe_id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=250)
     slug = models.SlugField(max_length=250, unique=True)
@@ -32,9 +35,7 @@ class RecipePost(models.Model):
     )
     method = models.TextField(
         help_text="Please enter each step on a new line.")
-    heart_count_faves = models.ManyToManyField(
-        User, related_name='favorite_recipes', blank=True
-    )
     created_on = models.DateField(auto_now_add=True)
     approved = models.BooleanField(default=False)
     status = models.IntegerField(choices=STATUS, default=0)
+    summary = models.TextField(max_length=500, blank=True)
