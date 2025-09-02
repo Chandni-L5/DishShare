@@ -43,8 +43,6 @@ class RecipePost(models.Model):
     approved = models.BooleanField(default=False)
     status = models.IntegerField(choices=STATUS, default=0)
 
-
-
     class Meta:
         ordering = ['-created_on']
 
