@@ -19,15 +19,17 @@
             {% for post in recipepost_list %}
                 {% if forloop.counter <= 4 %}
                 <div class="col-sm-6 col-md-3 mb-4" id="small-card">
-                    <div class="card h-100 d-flex flex-column" id="top-card-style">
-                        {% if post.image %}
-                        <img src="{{ post.image.url }}" class="card-img-top h-200" id="img-index" alt="{{ post.title }}">
-                        {% endif %}
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">{{ post.title }}</h5>
-                            <p class="card-text">{{ post.summary }}</p>
+                    <a href="{% url 'recipe_page' post.slug %}">
+                        <div class="card h-100 d-flex flex-column" id="top-card-style">
+                            {% if post.image %}
+                            <img src="{{ post.image.url }}" class="card-img-top h-200" id="img-index" alt="{{ post.title }}">
+                            {% endif %}
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">{{ post.title }}</h5>
+                                <p class="card-text">{{ post.summary }}</p>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 {% endif %}
             {% endfor %}

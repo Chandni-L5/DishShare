@@ -25,6 +25,7 @@
         "pyparsing",
         "recipepost",
         "setuptools",
+        "splitlines",
         "sqlparse",
         "summernote",
         "upvote",
