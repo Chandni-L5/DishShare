@@ -20,10 +20,83 @@
 }
 
 /* Global Styles */
-body {
+html, body {
     font-family: var(--font-family-base);
+    height: 100%;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-family-heading);
+}
+
+main {
+    background-color: var(--colour3);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Navbar Styles */
+.custom-navbar {
+    background-color: var(--colour6);
+    color: var(--font-light);
+    font-family: var(--font-family-heading);
+}
+
+.custom-navbar .navbar-brand,
+.custom-navbar .nav-link {
+    color: var(--font-light);
+    transition: transform 0.3s, color 0.3s;
+}
+
+.custom-navbar .navbar-brand:hover,
+.custom-navbar .nav-link:hover {
+  color: var(--colour8);       /* highlight color */
+  animation: bounce 0.3s;
+}
+
+a.nav-link, a.navbar-brand {
+    font-size: 24px;
+}
+
+.navbar-logo {
+    margin-inline: 15px;
+}
+
+.custom-navbar .navbar-toggler {
+    border-color: var(--font-light);
+}
+
+.navbar-collapse {
+    text-align: right;
+}
+
+/* Footer */
+#footer-style {
+    background-color: var(--colour6);
+    color: var(--font-light);
+    text-align: center;
+    font-size: 16px;
+}
+
+#footer-style i {
+    font-size: 1.5rem;
+    vertical-align: middle;
+}
+
+
+/* Media query: phones (425 and down) */
+@media screen and (max-width: 425px) {
+
+}
+
+/*Media query: tablets (768) */
+@media screen and (min-width:768px) {
+
+}
+
+/*media query: larger screens (1024)*/
+@media screen and (min-width: 1024px) {
+
 }
