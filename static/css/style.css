@@ -37,6 +37,22 @@ html {
     scroll-behavior: smooth;
 }
 
+a.btn {
+    color: var(--colour2);
+    font-weight: bold;
+    border-color: var(--colour2);
+    background-color: var(--colour3);
+    
+}
+
+a.btn:hover {
+    background-color: var(--colour2);
+    color: var(--font-light);
+    border-color: var(--colour2);
+    transform: scale(1.05);
+    transition: transform 0.3s, background-color 0.3s;
+}
+/* Base.html - Styling for the navbar and footer throughout the whole application */
 /* Navbar Styles */
 .custom-navbar {
     background-color: var(--colour6);
@@ -58,6 +74,7 @@ html {
 
 a.nav-link, a.navbar-brand {
     font-size: 24px;
+    font-weight: 200;
 }
 
 .navbar-logo {
@@ -85,9 +102,42 @@ a.nav-link, a.navbar-brand {
     vertical-align: middle;
 }
 
+/* index.html */
+h1.display-4 {
+    padding-top: 0.5rem;
+}
+
+#img-index {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+
+#top-card-style {
+    background-color: var(--colour5);
+    border: 3px, solid, var(--colour1);
+}
+
+#top-card-style:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+
+h5.card-title {
+    font-weight: bold;
+    text-align: center;
+    color: var(--colour6);
+    border-bottom: 1px solid var(--colour2);
+    padding-bottom: 3px;
+}
 
 /* Media query: phones (425 and down) */
 @media screen and (max-width: 425px) {
+    
+    /* index.html */
+    #small-card {
+        padding-inline: 24px;
+    }
 
 }
 
@@ -99,4 +149,13 @@ a.nav-link, a.navbar-brand {
 /*media query: larger screens (1024)*/
 @media screen and (min-width: 1024px) {
 
+    /* index.html */
+    div.card.h-100 {
+        height: 400px;
+    }
+
+    div>img.h-200 {
+        height: 200px;
+        object-fit: cover;
+    }
 }
