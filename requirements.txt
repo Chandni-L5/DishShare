@@ -2,13 +2,16 @@ asgiref==3.9.1
 bleach==6.2.0
 cachetools==5.5.2
 certifi==2025.1.31
+cffi==1.17.1
 charset-normalizer==3.4.1
 cloudinary==1.36.0
 crispy-bootstrap5==2025.6
+cryptography==45.0.7
+defusedxml==0.7.1
 dj-database-url==0.5.0
 dj3-cloudinary-storage==0.0.6
 Django==4.2.23
-django-allauth==65.11.0
+django-allauth==0.57.2
 django-cloudinary-storage==0.3.0
 django-crispy-forms==2.4
 django-summernote==0.8.20.0
@@ -30,8 +33,11 @@ protobuf==6.30.2
 psycopg2==2.9.10
 pyasn1==0.6.1
 pyasn1_modules==0.4.2
+pycparser==2.22
 Pygments==2.19.1
+PyJWT==2.10.1
 pyparsing==3.2.3
+python3-openid==3.2.0
 requests==2.32.3
 requests-oauthlib==2.0.0
 rich==14.0.0
@@ -44,4 +50,4 @@ typing_extensions==4.14.1
 uritemplate==4.1.1
 urllib3==1.26.20
 webencodings==0.5.1
-whitenoise==5.3.0
+whitenoise==6.5.0
