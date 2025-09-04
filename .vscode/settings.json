@@ -25,6 +25,7 @@
         "pyparsing",
         "recipepost",
         "setuptools",
+        "socialaccount",
         "splitlines",
         "sqlparse",
         "summernote",

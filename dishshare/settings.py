@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'cloudinary',
     'recipe_post',
+    'accounts',
 ]
 
 SITE_ID = 1
@@ -162,7 +163,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
@@ -178,3 +179,11 @@ AUTHENTICATION_BACKENDS = [
     # `allauth` specific authentication methods, such as login by email
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
+
+# Custom signup fields
+ACCOUNT_SIGNUP_FIELDS = [
+    'username*', 'email*', 'email2*', 'password1*', 'password2*'
+]
+ACCOUNT_FORMS = {'signup': 'accounts.forms.CustomSignupForm'}
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_USERNAME_REQUIRED = True
