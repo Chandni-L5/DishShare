@@ -24,10 +24,17 @@ def recipe_page(request, slug):
     """
     queryset = RecipePost.objects.filter(status=1)
     post = get_object_or_404(queryset, slug=slug)
+    comments = post.comments.all().order_by('-created_on')
+    comment_count = post.comments.filter(approved=True).count()
 
     ingredients_list = [i.strip() for i in post.ingredients.split(',')]
     return render(
         request,
         "recipe_post/recipe_page.html",
-        {"post": post, "ingredients_list": ingredients_list},
+        {
+            "post": post,
+            "ingredients_list": ingredients_list,
+            "comments": comments,
+            "comment_count": comment_count,
+        },
     )
