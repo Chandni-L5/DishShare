@@ -74,10 +74,18 @@
     </nav>
 
     <main class="flex-grow-1 main-bg">
+        {% if user.is_authenticated %}
+        <div id="login-status" class="flash">
+            <p class="text-end m-1">You are logged in ✅</p>
+        </div>
+        {% else %}
+        <div class="flash">
+            <p id="logout-status" class="text-end m-1">You have logged out 👋🏼</p>
+        </div>
+        {% endif %}
+
         {% block content %}
         <!-- Content Goes here -->
-        <h1>Welcome to DishShare</h1>
-        <p>Your one-stop solution for sharing and discovering delicious dishes.</p>
         {% endblock content %}
     </main>
 
@@ -90,6 +98,8 @@
         </p>
     </footer>
 
+    <!-- custom js -->
+    <script src="{% static 'js/flash.js' %}"></script>
     <!-- bootstrap js script -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">

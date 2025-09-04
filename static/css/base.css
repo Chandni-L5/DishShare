@@ -116,6 +116,15 @@ h1.display-4 {
     padding-top: 0.5rem;
 }
 
+.flash {
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+.flash-hide {
+    opacity: 0;
+}
+
 #img-index {
     height: 200px;
     object-fit: cover;
