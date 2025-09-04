@@ -37,21 +37,30 @@ html {
     scroll-behavior: smooth;
 }
 
-a.btn {
+
+button,
+a.btn,
+form#logout-form button#submit-button,
+form.password_reset input[type="submit"] {
     color: var(--colour2);
     font-weight: bold;
     border-color: var(--colour2);
     background-color: var(--colour3);
-    
+    padding-inline: 20px;
+    font-size: large;
 }
 
-a.btn:hover {
+button:hover,
+a.btn:hover,
+form#logout-form button#submit-button:hover,
+form.password_reset input[type="submit"]:hover {
     background-color: var(--colour2);
     color: var(--font-light);
     border-color: var(--colour2);
     transform: scale(1.05);
     transition: transform 0.3s, background-color 0.3s;
 }
+
 /* Base.html - Styling for the navbar and footer throughout the whole application */
 /* Navbar Styles */
 .custom-navbar {

@@ -187,3 +187,7 @@ ACCOUNT_SIGNUP_FIELDS = [
 ACCOUNT_FORMS = {'signup': 'accounts.forms.CustomSignupForm'}
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = True
+
+# Send emails to the console (shows up in your runserver terminal)
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+DEFAULT_FROM_EMAIL = "no-reply@example.com"
