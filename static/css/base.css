@@ -98,6 +98,22 @@ a.nav-link, a.navbar-brand {
     text-align: right;
 }
 
+.dropdown-style {
+    background-color: var(--colour6);
+    color: var(--font-light);
+    font-size: 22px;
+}
+
+.menu-style {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
+.dropdown-style:hover {
+    background-color: var(--colour8);
+}
+
 /* Footer */
 #footer-style {
     background-color: var(--colour6);
