@@ -299,6 +299,12 @@ cd DishShare
 
 ### Fixing Bugs
 <!--  -->
+disabling allauth auto messages to favour the js popup message
+- https://stackoverflow.com/questions/25744425/how-to-clean-up-django-login-message-from-framework?utm_source=chatgpt.com 
+- https://pypi.org/project/django-allauth/0.17.0/?utm_source=chatgpt.com
+- https://www.geeksforgeeks.org/python/python-extending-and-customizing-django-allauth/
+- https://stackoverflow.com/questions/45225384/django-messages-how-to-hide-specific-ones?utm_source=chatgpt.com
+
 
 ### Manual Testing 
 <!--  -->
@@ -321,6 +327,10 @@ cd DishShare
 
 ### Code Used
 <!--  -->
+- https://stackoverflow.com/questions/25744425/how-to-clean-up-django-login-message-from-framework?utm_source=chatgpt.com 
+- https://pypi.org/project/django-allauth/0.17.0/?utm_source=chatgpt.com
+- https://www.geeksforgeeks.org/python/python-extending-and-customizing-django-allauth/
+- https://stackoverflow.com/questions/45225384/django-messages-how-to-hide-specific-ones?utm_source=chatgpt.com
 
 ### Content
 - [Chatgpt](https://chatgpt.com/) 

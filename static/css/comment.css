@@ -1,0 +1,63 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* CSS Variables */
+:root {
+    --colour1: #651F1F;
+    /*dark burgundy*/
+    --colour2: #8A3324;
+    /*medium burgundy*/
+    --colour3: #F2E8CF;
+    /*beige*/
+    --colour4: #45513F;
+    /*dark sage*/
+    --colour5: #C2D9B5;
+    /*light sage*/
+    --colour6: #213B26;
+    /*dark green*/
+    --colour7: #A7C957;
+    /*light green*/
+    --colour8: #DEFF97;
+    /*vibrant green*/
+
+    --font-dark: #1C2815;
+    /*black green*/
+    --font-light: #FFFFFF;
+    /*white*/
+
+    --font-family-base: 'Montserrat', sans-serif;
+    --font-family-heading: 'Montserrat Alternates', sans-serif;
+}
+
+.cmt-section {
+    background-color: var(--colour5);
+    color: var(--font-dark)
+}
+
+.submit-btn {
+    color: var(--font-light);
+    font-weight: bold;
+    border-color: var(--colour1);
+    background-color: var(--colour1);
+    padding-inline: 20px;
+    font-size: large;
+}
+
+.submit-btn:hover {
+    background-color: var(--colour2);
+    border-color: var(--colour2);
+    color: var(--font-light);
+}
+
+.comment-box {
+    border: var(--colour4) 2px solid;
+    border-radius: 5px;
+    margin-bottom: 1em;
+    padding: 1rem;
+}
+
+.approval {
+    opacity: 0.6;
+    font-style: italic;
+    color: var(--colour2);
+}

@@ -3,34 +3,47 @@
 
 /* CSS Variables */
 :root {
-    --colour1: #651F1F; /*dark burgundy*/
-    --colour2: #8A3324; /*medium burgundy*/
-    --colour3: #F2E8CF; /*beige*/
-    --colour4: #45513F; /*dark sage*/
-    --colour5: #C2D9B5; /*light sage*/
-    --colour6: #213B26; /*dark green*/
-    --colour7: #A7C957; /*light green*/
-    --colour8: #DEFF97; /*vibrant green*/
+    --colour1: #651F1F;
+    /*dark burgundy*/
+    --colour2: #8A3324;
+    /*medium burgundy*/
+    --colour3: #F2E8CF;
+    /*beige*/
+    --colour4: #45513F;
+    /*dark sage*/
+    --colour5: #C2D9B5;
+    /*light sage*/
+    --colour6: #213B26;
+    /*dark green*/
+    --colour7: #A7C957;
+    /*light green*/
+    --colour8: #DEFF97;
+    /*vibrant green*/
 
-    --font-dark: #1C2815; /*black green*/
-    --font-light: #FFFFFF; /*white*/
+    --font-dark: #1C2815;
+    /*black green*/
+    --font-light: #FFFFFF;
+    /*white*/
 
     --font-family-base: 'Montserrat', sans-serif;
     --font-family-heading: 'Montserrat Alternates', sans-serif;
 }
 
 /* Global Styles */
-html, body {
+html,
+body {
     font-family: var(--font-family-base);
     height: 100%;
-}
-
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-family-heading);
-}
-
-main {
     background-color: var(--colour3);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-family-heading);
 }
 
 html {
@@ -77,11 +90,13 @@ form.password_reset input[type="submit"]:hover {
 
 .custom-navbar .navbar-brand:hover,
 .custom-navbar .nav-link:hover {
-  color: var(--colour8);       /* highlight color */
-  animation: bounce 0.3s;
+    color: var(--colour8);
+    /* highlight color */
+    animation: bounce 0.3s;
 }
 
-a.nav-link, a.navbar-brand {
+a.nav-link,
+a.navbar-brand {
     font-size: 24px;
     font-weight: 200;
 }
@@ -112,6 +127,43 @@ a.nav-link, a.navbar-brand {
 
 .dropdown-style:hover {
     background-color: var(--colour8);
+}
+
+/* Django messages */
+#message-container {
+    margin-top: 10px;
+}
+
+#msg {
+    background-color: var(--colour1);
+    border: 1px solid var(--colour1);
+    color: var(--font-light);
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    animation: fadeSlideIn 0.4s ease forwards;
+}
+
+#msg-btn {
+    filter: invert(100%);
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+    background-color: transparent;
+    border: none;
+    width: 1rem;
+    height: 1rem;
+}
+
+#msg-btn:hover,
+#msg-btn:active,
+#msg-btn:focus {
+    opacity: 1;
+    box-shadow: none;
+    outline: none;
+    background-color: transparent;
+    border: none;
 }
 
 /* Footer */
@@ -167,7 +219,7 @@ h5.card-title {
 
 /* Media query: phones (425 and down) */
 @media screen and (max-width: 425px) {
-    
+
     /* index.html */
     #small-card {
         padding-inline: 24px;
@@ -176,8 +228,13 @@ h5.card-title {
 }
 
 /*Media query: tablets (768) */
-@media screen and (min-width:768px) {
+@media screen and (max-width:768px) {
 
+    .col-md-8,
+    .col-md-4 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
 }
 
 /*media query: larger screens (1024)*/

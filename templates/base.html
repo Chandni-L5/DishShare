@@ -82,16 +82,24 @@
         </div>
     </nav>
     <!-- Django messages -->
-    <div class="container">
+    <div class="container" id="message-container">
         <div class="row">
-            <div class="col-md-8 offset-md-2">
+            <div class="col-md-8 offset-md-2 text-center">
+                {% if messages %}
                 {% for message in messages %}
-                <div class="alert {{ message.tags }} alert-dismissible
-        fade show" id="msg" role="alert">
-                    {{ message | safe }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                {# Normalise to plain, lowercased text for matching #}
+                {% with text=message|striptags|lower %}
+                {% if "signed in" not in text and "logged in" not in text and "signed out" not in text and "you are signed in" not in text %}
+                <div class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message|safe }}
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert"
+                        aria-label="Close"></button>
                 </div>
+                {% endif %}
+                {% endwith %}
                 {% endfor %}
+                {% endif %}
+
             </div>
         </div>
     </div>
