@@ -61,3 +61,7 @@
     font-style: italic;
     color: var(--colour2);
 }
+
+#comment-count {
+    color: var(--colour1);
+}

@@ -16,7 +16,6 @@ class RecipeHubList(generic.ListView):
 def recipe_page(request, slug):
     """
     Displays an individual :model:'recipe_post.RecipePost'.
-
     **Context**
     ``post``
         An instance of :model:'recipe_post.RecipePost'.
