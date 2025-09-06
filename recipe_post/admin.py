@@ -1,15 +1,25 @@
 from django.contrib import admin
-from django_summernote.admin import SummernoteModelAdmin
-from .models import RecipePost, Comment
+from .models import RecipePost, Comment, Ingredients, Method
+
+
+class IngredientsInline(admin.TabularInline):
+    model = Ingredients
+    extra = 1
+    fields = ("order", "text")
+
+
+class MethodInline(admin.TabularInline):
+    model = Method
+    extra = 1
+    fields = ("order", "text")
 
 
 @admin.register(RecipePost)
-class PostAdmin(SummernoteModelAdmin):
-    list_display = ('title', 'slug', 'status')
-    search_fields = ['title', 'author__username']
-    list_filter = ('status', 'approved', 'created_on')
-    prepopulated_fields = {'slug': ('title',)}
-    summernote_fields = ('method', 'ingredients', 'summary')
+class RecipePostAdmin(admin.ModelAdmin):
+    list_display = ("title", "author", "status", "created_on")
+    prepopulated_fields = {"slug": ("title",)}
+    inlines = [IngredientsInline, MethodInline]
+
 
 # Register your models here.
 admin.site.register(Comment)

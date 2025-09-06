@@ -22,16 +22,16 @@
         <div class="col-lg-4">
             <h2>Ingredients</h2>
             <ul>
-                {% for ingredient in ingredients_list %}
-                <li>{{ ingredient }}</li>
+                {% for ingredient in ingredients %}
+                <li>{{ ingredient.text }}</li>
                 {% endfor %}
             </ul>
         </div>
         <div class="col-lg-4">
             <h2>Instructions</h2>
             <ol>
-                {% for step in post.method.splitlines %}
-                <li>{{ step }}</li>
+                {% for step in steps %}
+                <li>{{ step.text }}</li>
                 {% endfor %}
             </ol>
         </div>

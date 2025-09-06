@@ -23,10 +23,12 @@ def recipe_page(request, slug):
     **Template**
     :template:`recipe_post/recipe_page.html`
     """
-    queryset = RecipePost.objects.filter(status=1)
+    queryset = (
+        RecipePost.objects.filter(status=1)
+        .prefetch_related('ingredients_rel', 'method_rel', 'comments')
+    )
     post = get_object_or_404(queryset, slug=slug)
-    comments = post.comments.all().order_by('-created_on')
-    comment_count = post.comments.filter(approved=True).count()
+
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
@@ -41,15 +43,16 @@ def recipe_page(request, slug):
             )
     comment_form = CommentForm()
 
-    ingredients_list = [i.strip() for i in post.ingredients.split(',')]
+    context = {
+        "post": post,
+        "ingredients": post.ingredients_rel.order_by('order'),
+        "steps": post.method_rel.order_by('order'),
+        "comments": post.comments.all().order_by('-created_on'),
+        "comment_count": post.comments.filter(approved=True).count(),
+        "comment_form": comment_form,
+    }
+
     return render(
         request,
-        "recipe_post/recipe_page.html",
-        {
-            "post": post,
-            "ingredients_list": ingredients_list,
-            "comments": comments,
-            "comment_count": comment_count,
-            "comment_form": comment_form,
-        },
+        "recipe_post/recipe_page.html", context
     )

@@ -22,7 +22,7 @@ from recipe_post.views import RecipeHubList
 urlpatterns = [
     path("accounts/", include("allauth.urls")),
     path('admin/', admin.site.urls),
+    path('recipes-hub/', include('recipe_post.urls'), name='recipe-hub'),
     path('summernote/', include('django_summernote.urls')),
     path('', RecipeHubList.as_view(), name='home'),
-    path('recipes-hub/', include('recipe_post.urls'), name='recipe-hub'),
 ]

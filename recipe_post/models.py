@@ -1,4 +1,5 @@
-from django.db import models
+from django.db import models, transaction
+from django.db.models import Max
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator
 from cloudinary.models import CloudinaryField
@@ -29,15 +30,6 @@ class RecipePost(models.Model):
             MinValueValidator(1, message="Duration must be at least 1 minute.")
         ], help_text="Please enter the cooking time in minutes."
     )
-    ingredients = models.TextField(
-        help_text=(
-            "Enter ingredients with measurements,"
-            "one per line, separated by a comma "
-            "(e.g., '200g flour, '2tbsp sugar')."
-        )
-    )
-    method = models.TextField(
-        help_text="Please enter each step on a new line.")
     summary = models.TextField(max_length=500, blank=True)
     created_on = models.DateField(auto_now_add=True)
     approved = models.BooleanField(default=False)
@@ -48,6 +40,68 @@ class RecipePost(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Ingredients(models.Model):
+    """
+    Stores individual ingredients related to :model:`recipe_post.RecipePost`.
+    Methods: returns a string representation of the ingredient.
+    """
+    recipe = models.ForeignKey(
+        RecipePost, on_delete=models.CASCADE, related_name='ingredients_rel'
+    )
+    order = models.PositiveSmallIntegerField(null=True, blank=True)
+    text = models.CharField(
+        max_length=255,
+        help_text="Enter each ingredient and its measurements individually."
+    )
+
+    class Meta:
+        ordering = ['order']
+        constraints = [
+            models.UniqueConstraint(
+                fields=['recipe', 'order'],
+                name='unique_ingredient_order_per_recipe'
+            )
+        ]
+
+    def save(self, *args, **kwargs):
+        # adds an order number incrementally if one is not provided
+        if self.pk is None and not self.order:
+            with transaction.atomic():
+                last = Ingredients.objects.filter(recipe=self.recipe).aggregate(m=Max('order'))['m'] or 0
+                self.order = last + 1
+        super().save(*args, **kwargs)
+
+
+class Method(models.Model):
+    """
+    Stores individual method steps related to :model:`recipe_post.RecipePost`.
+    Methods: returns a string representation of the method step.
+    """
+    recipe = models.ForeignKey(
+        RecipePost, on_delete=models.CASCADE, related_name='method_rel'
+    )
+    order = models.PositiveSmallIntegerField(null=True, blank=True)
+    text = models.TextField(
+        help_text="Enter each step of the method individually."
+    )
+
+    class Meta:
+        ordering = ['order']
+        constraints = [
+            models.UniqueConstraint(
+                fields=['recipe', 'order'],
+                name='unique_method_order_per_recipe'
+            )
+        ]
+
+    def save(self, *args, **kwargs):
+        if self.pk is None and not self.order:
+            with transaction.atomic():
+                last = Method.objects.filter(recipe=self.recipe).aggregate(m=Max('order'))['m'] or 0
+                self.order = last + 1
+        super().save(*args, **kwargs)
 
 
 class Comment(models.Model):
