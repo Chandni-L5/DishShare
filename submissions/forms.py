@@ -1,16 +1,28 @@
 from django import forms
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Row, Column, Submit
-from recipe_post.models import RecipePost  # import your existing model
+from crispy_forms.layout import Layout, Row, Column
+from recipe_post.models import RecipePost, Ingredients, Method
+from django.forms import inlineformset_factory
 
 
 class RecipePostForm(forms.ModelForm):
+    """
+    Form for users to submit a recipe to be reviewed by admin.
+    related to :model:`recipe_post.RecipePost`.`authUser`
+    """
     class Meta:
         model = RecipePost
         fields = ["title", "difficulty", "duration", "summary", "image"]
         widgets = {
-            "summary": forms.Textarea(attrs={"rows": 3, "placeholder": "Brief description"}),
-            "duration": forms.NumberInput(attrs={"min": 1, "placeholder": "in minutes"}),
+            "title": forms.TextInput(attrs={
+                "placeholder": "Recipe title"
+            }),
+            "summary": forms.Textarea(attrs={
+                "rows": 2, "placeholder": "Brief description"
+            }),
+            "duration": forms.NumberInput(attrs={
+                "min": 1, "placeholder": "in minutes"
+            }),
         }
 
     def __init__(self, *args, **kwargs):
@@ -28,3 +40,24 @@ class RecipePostForm(forms.ModelForm):
             "summary",
             "image",
         )
+
+
+IngredientsFormSet = inlineformset_factory(
+    parent_model=RecipePost,
+    model=Ingredients,
+    fields=["text"],
+    extra=1,
+    widgets={"text": forms.TextInput(attrs={
+        "placeholder": "e.g. 2 cups of flour"
+    })},
+)
+
+MethodFormSet = inlineformset_factory(
+    parent_model=RecipePost,
+    model=Method,
+    fields=["text"],
+    extra=1,
+    widgets={"text": forms.Textarea(attrs={
+        "placeholder": "e.g. Preheat the oven to 180C"
+    })},
+)

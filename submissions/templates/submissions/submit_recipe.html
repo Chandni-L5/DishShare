@@ -1,22 +1,71 @@
 {% extends "base.html" %}
-{% load crispy_forms_tags %}
-{% load static %}
+{% load static crispy_forms_tags %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/submit.css' %}">
 {% endblock %}
 
 {% block content %}
-<div class="container py-4">
-  <h1 class="mb-3">Submit a Recipe</h1>
+<div class="container">
+    <div class="row mt-2">
+        <h1 class="text-center">Submit a Recipe</h1>
+        <h2 class="text-center h5 mb-4">Your recipe will be reviewed by our admin team before being published.</h2>
+        <form method="post" enctype="multipart/form-data" novalidate>
+            {% csrf_token %}
+            {{ form|crispy }}
 
-  <form method="post" enctype="multipart/form-data" novalidate>
-    {% csrf_token %}
-    {{ form|crispy }}
+            <!-- Ingredients -->
+            <h3 class="h5">Ingredients</h3>
+            {{ ing_formset.management_form }} {# must be inside <form> #}
 
-    <div class="mt-3 text-center">
-      <button type="submit" class="btn btn-primary button-submit text-center">Submit</button>
+            <div id="ing-forms">
+                {% for f in ing_formset %}
+                <div class="card p-3 mb-2">
+                    {{ f.text }}
+                </div>
+                {% endfor %}
+            </div>
+
+            <template id="ing-empty-form">
+                <div class="card p-3 mb-2">
+                    {% with f=ing_formset.empty_form %}
+                    {{ f.text }}
+                    {% endwith %}
+                </div>
+            </template>
+
+            <button type="button" id="add-ing" class="btn button-submit btn-sm mt-2">+ Add ingredient</button>
+
+            <!-- Method -->
+            <h3 class="h5 mt-4">Method</h3>
+            {{ step_formset.management_form }} {# must be inside <form> #}
+
+            <div id="step-forms">
+                {% for f in step_formset %}
+                <div class="card p-3 mb-2">
+                    {{ f.text }}
+                </div>
+                {% endfor %}
+            </div>
+
+            <template id="step-empty-form">
+                <div class="card p-3 mb-2">
+                    {% with f=step_formset.empty_form %}
+                    {{ f.text }}
+                    {% endwith %}
+                </div>
+            </template>
+
+            <button type="button" id="add-step" class="btn button-submit btn-sm mt-2">+ Add step</button>
+
+            <div class="mt-3 text-center">
+                <button type="submit" class="btn button-submit">Submit</button>
+            </div>
+        </form>
     </div>
-  </form>
 </div>
+
+<!-- custom js -->
+<script src="{% static 'js/recipe.js' %}"></script>
+
 {% endblock %}

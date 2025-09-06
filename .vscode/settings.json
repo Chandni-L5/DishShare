@@ -31,6 +31,7 @@
         "splitlines",
         "sqlparse",
         "summernote",
+        "tmpl",
         "upvote",
         "upvotes",
         "uritemplate",
