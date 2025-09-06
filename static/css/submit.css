@@ -1,0 +1,33 @@
+/* CSS Variables */
+:root {
+    --colour1: #651F1F; /*dark burgundy*/
+    --colour2: #8A3324; /*medium burgundy*/
+    --colour3: #F2E8CF; /*beige*/
+    --colour4: #45513F; /*dark sage*/
+    --colour5: #C2D9B5; /*light sage*/
+    --colour6: #213B26; /*dark green*/
+    --colour7: #A7C957; /*light green*/
+    --colour8: #DEFF97; /*vibrant green*/
+
+    --font-dark: #1C2815; /*black green*/
+    --font-light: #FFFFFF; /*white*/
+
+    --font-family-base: 'Montserrat', sans-serif;
+    --font-family-heading: 'Montserrat Alternates', sans-serif;
+}
+
+/* Submit Page Specific Styles */
+.button-submit {
+    color: var(--colour2);
+    font-weight: bold;
+    border-color: var(--colour2);
+    background-color: var(--colour3);
+    padding-inline: 20px;
+}
+
+.button-submit:hover {
+    background-color: var(--colour2);
+    color: var(--font-light);
+    border-color: var(--colour2);
+    transition: background-color 0.3s, color 0.3s;
+}

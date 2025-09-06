@@ -25,4 +25,5 @@ urlpatterns = [
     path('recipes-hub/', include('recipe_post.urls'), name='recipe-hub'),
     path('summernote/', include('django_summernote.urls')),
     path('', RecipeHubList.as_view(), name='home'),
+    path('submit/', include('submissions.urls')),
 ]
