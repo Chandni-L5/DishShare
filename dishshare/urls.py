@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from . import views
 from recipe_post.views import RecipeHubList
+from recipe_post.views import recipe_page
 
 urlpatterns = [
     path("accounts/", include("allauth.urls")),
@@ -26,4 +27,5 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
     path('', RecipeHubList.as_view(), name='home'),
     path('submit/', include('submissions.urls')),
+    path('<slug:slug>/', recipe_page, name='recipe_page'),
 ]

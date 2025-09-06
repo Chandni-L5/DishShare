@@ -58,6 +58,7 @@ MethodFormSet = inlineformset_factory(
     fields=["text"],
     extra=1,
     widgets={"text": forms.Textarea(attrs={
-        "placeholder": "e.g. Preheat the oven to 180C"
+        "placeholder": "e.g. Preheat the oven to 180C",
+        "rows": 2,
     })},
 )

@@ -25,9 +25,18 @@ def submit_recipe(request):
             and ing_formset.is_valid()
             and step_formset.is_valid()
         ):
+            from django.utils.text import slugify
             with transaction.atomic():
                 recipe = form.save(commit=False)
                 recipe.author = request.user
+                # Generates a unique slug from the title
+                base_slug = slugify(recipe.title)
+                slug = base_slug
+                counter = 1
+                while RecipePost.objects.filter(slug=slug).exists():
+                    slug = f"{base_slug}-{counter}"
+                    counter += 1
+                recipe.slug = slug
                 recipe.save()
                 ing_formset.instance = recipe
                 step_formset.instance = recipe
