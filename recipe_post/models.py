@@ -53,7 +53,6 @@ class Ingredients(models.Model):
     order = models.PositiveSmallIntegerField(null=True, blank=True)
     text = models.CharField(
         max_length=255,
-        help_text="Enter each ingredient and its measurements individually."
     )
 
     class Meta:
@@ -69,7 +68,11 @@ class Ingredients(models.Model):
         # adds an order number incrementally if one is not provided
         if self.pk is None and not self.order:
             with transaction.atomic():
-                last = Ingredients.objects.filter(recipe=self.recipe).aggregate(m=Max('order'))['m'] or 0
+                last = (
+                    Ingredients.objects
+                    .filter(recipe=self.recipe)
+                    .aggregate(m=Max('order'))['m'] or 0
+                )
                 self.order = last + 1
         super().save(*args, **kwargs)
 
@@ -99,7 +102,11 @@ class Method(models.Model):
     def save(self, *args, **kwargs):
         if self.pk is None and not self.order:
             with transaction.atomic():
-                last = Method.objects.filter(recipe=self.recipe).aggregate(m=Max('order'))['m'] or 0
+                last = (
+                    Method.objects
+                    .filter(recipe=self.recipe)
+                    .aggregate(m=Max('order'))['m'] or 0
+                )
                 self.order = last + 1
         super().save(*args, **kwargs)
 
