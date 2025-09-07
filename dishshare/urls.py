@@ -23,9 +23,9 @@ from recipe_post.views import recipe_page
 urlpatterns = [
     path("accounts/", include("allauth.urls")),
     path('admin/', admin.site.urls),
-    path('recipes-hub/', include('recipe_post.urls'), name='recipe-hub'),
     path('summernote/', include('django_summernote.urls')),
     path('', RecipeHubList.as_view(), name='home'),
     path('submit/', include('submissions.urls')),
     path('<slug:slug>/', recipe_page, name='recipe_page'),
+    path('recipes-hub/', include('recipe_post.urls')),
 ]

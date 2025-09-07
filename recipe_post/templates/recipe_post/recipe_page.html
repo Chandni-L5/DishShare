@@ -41,8 +41,8 @@
     <div class="row">
         <div class="col-12 col-md-8 card mb-4 mt-3 cmt-section">
             <h3 class="mt-3"><strong id="comment-count">
-                <i class="far fa-comments"></i> {{ comment_count }}
-            </strong>Comments:</h3>
+                    <i class="far fa-comments"></i> {{ comment_count }}
+                </strong>Comments:</h3>
             <div class="card-body">
                 <!--  for loop inside the empty control tags to iterate through each comment in comments -->
                 {% for comment in comments %}
@@ -55,12 +55,19 @@
                         {{ comment.content | linebreaks }}
                     </div>
                     <span class="font-weight-normal">
-                            {{ comment.created_on }}
-                        </span>
+                        {{ comment.created_on }}
+                    </span>
                     {% if not comment.approved and comment.author == user %}
                     <p class="approval">
                         Your comment is awaiting approval by admin
                     </p>
+                    {% endif %}
+                    {% if user.is_authenticated and comment.author == user %}
+                    <button type="button" class="btn btn-delete comment-buttons"
+                        data-delete-url="{% url 'comment_delete' slug=post.slug comment_id=comment.id %}"
+                        data-bs-toggle="modal" data-bs-target="#deleteModal"><u>Delete</u></button>
+                    <button type="button" class="btn btn-edit comment-buttons"
+                        data-comment-id="{{ comment.id }}"><u>Edit</u></button>
                     {% endif %}
                 </div>
                 <!-- for loop ends here -->
@@ -77,9 +84,10 @@
                     {{ comment_form | crispy }}
                     {% csrf_token %}
                     <div class="text-center">
-                        <button id="submitButton" type="submit" class="btn btn-signup btn-lg text-center submit-btn">Submit</button>
+                        <button id="submitButton" type="submit"
+                            class="btn btn-signup btn-lg text-center submit-btn">Submit</button>
                     </div>
-                    </form>
+                </form>
                 {% else %}
                 <p class="text-center">Log in to leave a comment</p>
                 {% endif %}
@@ -88,4 +96,27 @@
     </div>
 </div>
 
+<!-- Delete confirmation modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">Delete comment?</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to delete your comment?
+                This action cannot be undone.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn close-btn" data-bs-dismiss="modal">Close</button>
+                <a id="deleteConfirm" href="#" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}
+
+{% block extras %}
+<script src="{% static 'js/comment.js' %}"></script>
+{% endblock %}

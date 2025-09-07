@@ -65,3 +65,25 @@
 #comment-count {
     color: var(--colour1);
 }
+
+u {
+    color: var(--colour1)
+}
+
+button.btn.close-btn {
+    --bs-btn-bg: var(--colour3);
+    --bs-btn-color: var(--colour2);
+    --bs-btn-border-color: var(--colour2);
+    --bs-btn-hover-bg: var(--colour2);
+    --bs-btn-hover-color: var(--font-light);
+    --bs-btn-hover-border-color: var(--colour2);
+    padding-inline: 20px;
+    font-size: large;
+    font-weight: bold;
+}
+
+button.btn.close-btn:hover {
+    background-color: var(--colour2);
+    color: var(--font-light);
+    border-color: var(--colour2);
+}
