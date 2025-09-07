@@ -12,10 +12,10 @@
         <div class="hero-section text-center">
             <p class="lead mt-3"><strong>Find all your submissions here!</strong></p>
         </div>
-
+        <!-- dropdown filter -->
         <div class="dropup text-end mb-2">
-            <button class="global-button dropdown-toggle" type="button" id="filterDropdown"
-                data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="global-button dropdown-toggle" type="button" id="filterDropdown" data-bs-toggle="dropdown"
+                aria-expanded="false">
                 Filter Recipes
                 {% if selected_status == 'published' %}
                 - Approved ({{ counts.approved }})
@@ -48,7 +48,7 @@
             </ul>
         </div>
 
-
+        <!-- display recipe cards -->
         <div class="row justify-content-center">
             {% for recipe in recipes %}
             <div class="col-sm-6 col-md-3 mb-4" id="small-card">
@@ -71,19 +71,5 @@
             {% endfor %}
         </div>
     </div>
-    <!-- <div class="row text-center mb-4">
-        {% if recipes %}
-        <ul>
-            {% for recipe in recipes %}
-            <li>
-                <a href="{% url 'recipe_page' recipe.slug %}">{{ recipe.title }}</a>
-                <span> - {{ recipe.created_on|date:"SHORT_DATE_FORMAT" }}</span>
-            </li>
-            {% endfor %}
-        </ul>
-        {% else %}
-        <p>You have not submitted any recipes yet.</p>
-        {% endif %}
-    </div> -->
 </div>
 {% endblock %}

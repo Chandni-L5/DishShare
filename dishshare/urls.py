@@ -16,9 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from . import views
 from recipe_post.views import RecipeHubList
-from recipe_post.views import recipe_page
 from submissions.views import MySubmissions
 
 
@@ -26,8 +24,12 @@ urlpatterns = [
     path("accounts/", include("allauth.urls")),
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
+
+    # Homepage
     path('', RecipeHubList.as_view(), name='home'),
+
+    # app
     path('submit/', include('submissions.urls')),
-    path('recipes-hub/', include('recipe_post.urls')),
+    path("recipes-hub/", include("recipe_post.urls")),
     path("my-submissions/", MySubmissions.as_view(), name="my_submissions"),
 ]

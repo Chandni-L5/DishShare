@@ -14,6 +14,12 @@ class RecipeHubList(generic.ListView):
     paginate_by = 6
 
 
+class RecipeHubPage(generic.ListView):
+    queryset = RecipePost.objects.order_by('-created_on').filter(status=1)
+    template_name = 'recipe_post/recipe_hub.html'
+    context_object_name = 'recipepost_list'
+
+
 def recipe_page(request, slug):
     """
     Displays an individual :model:'recipe_post.RecipePost'.

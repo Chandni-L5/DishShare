@@ -1,9 +1,10 @@
 from . import views
 from django.urls import path
+from .views import RecipeHubPage
 
 
 urlpatterns = [
-    path("", views.RecipeHubList.as_view(), name="home"),
+    path("", RecipeHubPage.as_view(), name="recipe_hub"),
     path("<slug:slug>/", views.recipe_page, name="recipe_page"),
     path(
         "<slug:slug>/edit_comment/<int:comment_id>/",
