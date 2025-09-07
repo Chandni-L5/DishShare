@@ -19,8 +19,8 @@
     <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
     <!-- Global base.css -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <!-- Page-specific CSS -->
@@ -56,7 +56,7 @@
                         | Hey {{ user.username }} 👋🏼
                     </a>
                     <ul class="dropdown-menu menu-style">
-                        <li><a class="dropdown-item dropdown-style text-end" href="#">Your Submissions</a></li>
+                        <li><a class="dropdown-item dropdown-style text-end" href="{% url 'my_submissions' %}">My Submissions</a></li>
                         <li><a class="dropdown-item dropdown-style text-end" href="#">Your Favourites</a></li>
                     </ul>
                 </li>
@@ -129,12 +129,11 @@
         <i class="fab fa-instagram-square ms-3"></i>
     </p>
 </footer>
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 {% block extras %}{% endblock %}
 <!-- custom js -->
 <script src="{% static 'js/flash.js' %}"></script>
-<!-- bootstrap js script -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
 </script>
 <!-- Font Awesome script -->
 <script src="https://kit.fontawesome.com/79e37bf5f8.js" crossorigin="anonymous"></script>

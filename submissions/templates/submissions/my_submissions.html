@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container mt-3">
+    <div class="row text-center mb-4">
+        <h1>My Submissions</h1>
+    </div>
+
+    <div class="container mt-1">
+        <div class="hero-section text-center">
+            <p class="lead mt-3"><strong>Find all your submissions here!</strong></p>
+        </div>
+
+        <div class="dropup text-end mb-2">
+            <button class="global-button dropdown-toggle" type="button" id="filterDropdown"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Filter Recipes
+                {% if selected_status == 'published' %}
+                - Approved ({{ counts.approved }})
+                {% elif selected_status == 'draft' %}
+                - Unapproved ({{ counts.unapproved }})
+                {% else %}
+                - All ({{ counts.all }})
+                {% endif %}
+            </button>
+
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="filterDropdown">
+                <li>
+                    <a href="{% url 'my_submissions' %}"
+                        class="dropdown-item {% if not selected_status %}active{% endif %}">
+                        All ({% if counts.all %}{{ counts.all }}{% else %}0{% endif %})
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'my_submissions' %}?status=published"
+                        class="dropdown-item {% if selected_status == 'published' %}active{% endif %}">
+                        Approved ({% if counts.approved %}{{ counts.approved }}{% else %}0{% endif %})
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'my_submissions' %}?status=draft"
+                        class="dropdown-item {% if selected_status == 'draft' %}active{% endif %}">
+                        Unapproved ({% if counts.unapproved %}{{ counts.unapproved }}{% else %}0{% endif %})
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="row justify-content-center">
+            {% for recipe in recipes %}
+            <div class="col-sm-6 col-md-3 mb-4" id="small-card">
+                {% if recipe.slug %}
+                <a href="{% url 'recipe_page' recipe.slug %}" class="post-link">
+                    <div class="card h-100 d-flex flex-column" id="top-card-style">
+                        <img src="{{ recipe.image.url }}" class="card-img-top h-200" id="img-index"
+                            alt="{{ recipe.title }}">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">{{ recipe.title }}</h5>
+                            <p class="card-text">{{ recipe.summary }}</p>
+                            <span> - {{ recipe.created_on|date:"SHORT_DATE_FORMAT" }}</span>
+                        </div>
+                    </div>
+                </a>
+                {% endif %}
+            </div>
+            {% empty %}
+            <p>You have not submitted any recipes yet.</p>
+            {% endfor %}
+        </div>
+    </div>
+    <!-- <div class="row text-center mb-4">
+        {% if recipes %}
+        <ul>
+            {% for recipe in recipes %}
+            <li>
+                <a href="{% url 'recipe_page' recipe.slug %}">{{ recipe.title }}</a>
+                <span> - {{ recipe.created_on|date:"SHORT_DATE_FORMAT" }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>You have not submitted any recipes yet.</p>
+        {% endif %}
+    </div> -->
+</div>
+{% endblock %}

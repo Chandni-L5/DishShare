@@ -19,6 +19,8 @@ from django.urls import path, include
 from . import views
 from recipe_post.views import RecipeHubList
 from recipe_post.views import recipe_page
+from submissions.views import MySubmissions
+
 
 urlpatterns = [
     path("accounts/", include("allauth.urls")),
@@ -26,6 +28,6 @@ urlpatterns = [
     path('summernote/', include('django_summernote.urls')),
     path('', RecipeHubList.as_view(), name='home'),
     path('submit/', include('submissions.urls')),
-    path('<slug:slug>/', recipe_page, name='recipe_page'),
     path('recipes-hub/', include('recipe_post.urls')),
+    path("my-submissions/", MySubmissions.as_view(), name="my_submissions"),
 ]
