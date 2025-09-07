@@ -31,3 +31,28 @@
     border-color: var(--colour2);
     transition: background-color 0.3s, color 0.3s;
 }
+
+button.edit-btn, a.edit-btn {
+    color: var(--colour2);
+    text-decoration: underline;
+    border: var(--colour2) solid 1px;
+    font-weight: bold;
+    background-color: var(--colour5);
+    padding-inline: 20px;
+    font-size: large;
+}
+
+button.edit-btn:hover, a.edit-btn:hover {
+    background-color: var(--colour2);
+    color: var(--colour5);
+    border-color: var(--colour5);
+}
+
+.action-row {
+    position: relative; z-index: 3;
+}
+
+.post-link {
+    position: static !important; display: block;
+}
+

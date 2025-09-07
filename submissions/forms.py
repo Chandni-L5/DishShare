@@ -42,21 +42,54 @@ class RecipePostForm(forms.ModelForm):
         )
 
 
-IngredientsFormSet = inlineformset_factory(
+IngredientsFormSetCreate = inlineformset_factory(
     parent_model=RecipePost,
     model=Ingredients,
     fields=["text"],
-    extra=1,
+    extra=0,
+    can_delete=False,
+    min_num=1,
+    validate_min=True,
     widgets={"text": forms.TextInput(attrs={
         "placeholder": "e.g. 2 cups of flour"
     })},
 )
 
-MethodFormSet = inlineformset_factory(
+IngredientsFormSetEdit = inlineformset_factory(
+    parent_model=RecipePost,
+    model=Ingredients,
+    fields=["text"],
+    extra=0,
+    can_delete=True,
+    min_num=1,
+    validate_min=True,
+    widgets={"text": forms.TextInput(attrs={
+        "placeholder": "e.g. 2 cups of flour"
+    })},
+)
+
+MethodFormSetCreate = inlineformset_factory(
     parent_model=RecipePost,
     model=Method,
     fields=["text"],
-    extra=1,
+    extra=0,
+    can_delete=False,
+    min_num=1,
+    validate_min=True,
+    widgets={"text": forms.Textarea(attrs={
+        "placeholder": "e.g. Preheat the oven to 180C",
+        "rows": 2,
+    })},
+)
+
+MethodFormSetEdit = inlineformset_factory(
+    parent_model=RecipePost,
+    model=Method,
+    fields=["text"],
+    extra=0,
+    can_delete=True,
+    min_num=1,
+    validate_min=True,
     widgets={"text": forms.Textarea(attrs={
         "placeholder": "e.g. Preheat the oven to 180C",
         "rows": 2,

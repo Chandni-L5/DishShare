@@ -3,7 +3,6 @@ from django.db.models import Max
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator
 from cloudinary.models import CloudinaryField
-from django.utils.text import slugify
 
 
 STATUS = ((0, "Draft"), (1, "Published"))

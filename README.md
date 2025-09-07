@@ -231,7 +231,7 @@ During the designing and styling process of the website, I have kept in mind to 
 
 ## Technologies Used
 
-- **Frontend:** HTML, CSS, JavaScript, Bootstrap
+- **Frontend:** HTML, CSS, JavaScript, Bootstrap, Poppers
 - **Backend:** Python, Django 
 - **Database:** PostgreSQL
 - **Development Tools:**
