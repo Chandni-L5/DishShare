@@ -37,6 +37,11 @@ body {
     background-color: var(--colour3);
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 h1,
 h2,
 h3,
