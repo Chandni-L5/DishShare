@@ -31,6 +31,7 @@
         "splitlines",
         "sqlparse",
         "summernote",
+        "testpass",
         "tmpl",
         "upvote",
         "upvotes",
