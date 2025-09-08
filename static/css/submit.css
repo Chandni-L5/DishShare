@@ -56,3 +56,27 @@ button.edit-btn:hover, a.edit-btn:hover {
     position: static !important; display: block;
 }
 
+/* filter dropdown */
+.dropdown-menu {
+    background-color: var(--colour4);
+    border: 1px solid var(--colour3);
+    border-radius: 0.5rem;
+    padding: 0.25rem 0;
+    font-size: 16px;
+}
+
+.dropdown-menu .dropdown-item {
+    color: var(--font-light);
+    background-color: var(--colour4);
+    padding: 0.5rem 1rem;
+}
+
+.dropdown-menu .dropdown-item:hover {
+    background-color: var(--colour4);
+    color: var(--font-light);
+}
+
+.dropdown-menu .dropdown-item.active,
+.dropdown-menu .dropdown-item:active {
+    background-color: var(--colour4);
+}

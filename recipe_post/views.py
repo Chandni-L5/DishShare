@@ -11,7 +11,6 @@ class RecipeHubList(generic.ListView):
     # query set order to be amended once separate vote method is created
     queryset = RecipePost.objects.order_by('-created_on').filter(status=1)
     template_name = 'index.html'
-    paginate_by = 6
 
 
 class RecipeHubPage(generic.ListView):

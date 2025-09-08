@@ -21,32 +21,25 @@
             <button class="global-button dropdown-toggle" type="button" id="filterDropdown" data-bs-toggle="dropdown"
                 aria-expanded="false">
                 Filter Recipes
-                {% if selected_status == 'published' %}
-                - Approved ({{ counts.approved }})
-                {% elif selected_status == 'draft' %}
-                - Unapproved ({{ counts.unapproved }})
-                {% else %}
-                - All ({{ counts.all }})
-                {% endif %}
             </button>
 
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="filterDropdown">
                 <li>
                     <a href="{% url 'my_submissions' %}"
                         class="dropdown-item {% if not selected_status %}active{% endif %}">
-                        All ({% if counts.all %}{{ counts.all }}{% else %}0{% endif %})
+                        All - {% if counts.all %}{{ counts.all }}{% else %}0{% endif %}
                     </a>
                 </li>
                 <li>
                     <a href="{% url 'my_submissions' %}?status=published"
                         class="dropdown-item {% if selected_status == 'published' %}active{% endif %}">
-                        Approved ({% if counts.approved %}{{ counts.approved }}{% else %}0{% endif %})
+                        Published - {% if counts.published %}{{ counts.published }}{% else %}0{% endif %}
                     </a>
                 </li>
                 <li>
                     <a href="{% url 'my_submissions' %}?status=draft"
                         class="dropdown-item {% if selected_status == 'draft' %}active{% endif %}">
-                        Unapproved ({% if counts.unapproved %}{{ counts.unapproved }}{% else %}0{% endif %})
+                        Pending Approval - {% if counts.draft %}{{ counts.draft }}{% else %}0{% endif %}
                     </a>
                 </li>
             </ul>
