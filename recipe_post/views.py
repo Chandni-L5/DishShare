@@ -8,9 +8,12 @@ from .forms import CommentForm
 
 # Create your views here.
 class RecipeHubList(generic.ListView):
-    # query set order to be amended once separate vote method is created
-    queryset = RecipePost.objects.order_by('-created_on').filter(status=1)
     template_name = 'index.html'
+    context_object_name = 'recipepost_list'
+
+    def get_queryset(self):
+        qs = RecipePost.objects.filter(status=1)
+        return qs.order_by('?')[:4]
 
 
 class RecipeHubPage(generic.ListView):
