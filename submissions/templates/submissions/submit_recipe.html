@@ -28,6 +28,7 @@
 
             <!-- Ingredients -->
             <h3 class="h5">Ingredients</h3>
+            <p>List each ingredient on a new line.</p>
             {{ ing_formset.management_form }}
 
             {% if ing_formset.non_form_errors %}
@@ -73,6 +74,7 @@
 
             <!-- Method -->
             <h3 class="h5 mt-4">Method</h3>
+            <p>List each step on a new line.</p>
             {{ step_formset.management_form }}
 
             {% if step_formset.non_form_errors %}
@@ -116,7 +118,11 @@
 
             <button type="button" id="add-step" class="btn button-submit btn-sm mt-2">+ Add step</button>
             <div class="row">
+                {% if object %}
                 <div class="col-6 mt-1 text-center">
+                    {% else %}
+                <div class="col-12 mt-1 text-center">
+                {% endif %}
                     <button type="submit" class="btn button-submit">
                         {% if object %}
                         Save changes
