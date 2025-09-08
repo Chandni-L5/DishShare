@@ -32,7 +32,7 @@ class RecipePostModelTest(TestCase):
         data.update(overrides)
         return RecipePost.objects.create(**data)
 
-# RecipePost Tests
+# --- RecipePost Tests ---
     def test_create_recipe_successfully(self):
         # Creates recipe successfully
         post = self.create_recipe(
@@ -67,7 +67,7 @@ class RecipePostModelTest(TestCase):
         with self.assertRaises(IntegrityError):
             self.create_recipe(slug='unique-slug')
 
-# Ingredients/Method Tests
+# --- Ingredients/Method Tests ---
     def test_ing_order_autoincrement(self):
         # auto increments order field correctly (unordered and ordered lists)
         post = self.create_recipe(slug="with-ingredients")
@@ -108,7 +108,7 @@ class RecipePostModelTest(TestCase):
         self.assertEqual(Ingredients.objects.filter(recipe=post).count(), 0)
         self.assertEqual(Method.objects.filter(recipe=post).count(), 0)
 
-# Comment Tests
+# --- Comment Tests ---
     def test_comment_defaults_str_and_order(self):
         # creates comment successfully with approved=False status
         post = self.create_recipe(slug="with-comments")
