@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+{% load static crispy_forms_tags widget_tweaks %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/submit.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row mt-2">
+        <h1 class="text-center">
+            {% if object %}
+            Edit: {{ object.title }}
+            {% else %}
+            Submit a Recipe
+            {% endif %}
+        </h1>
+        <h2 class="text-center h5 mb-4">
+            {% if object %}
+            Update your recipe below.
+            {% else %}
+            Your recipe will be reviewed by our admin team before being published.
+            {% endif %}
+        </h2>
+        <form method="post" enctype="multipart/form-data" novalidate>
+            {% csrf_token %}
+            {{ form|crispy }}
+
+            <!-- Ingredients -->
+            <h3 class="h5">Ingredients</h3>
+            <p>List each ingredient on a new line.</p>
+            {{ ing_formset.management_form }}
+
+            {% if ing_formset.non_form_errors %}
+            <div class="alert alert-danger">{{ ing_formset.non_form_errors }}</div>
+            {% endif %}
+
+            <div id="ing-forms">
+                {% for f in ing_formset %}
+                <div class="card p-3 mb-2 ing-row">
+                    {{ f.id }}
+                    {{ f.text }}
+                    {% if f.errors %}
+                    <div class="text-danger small mt-1">
+                        {% for field, errs in f.errors.items %}
+                        {% for e in errs %}<div>{{ e }}</div>{% endfor %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% if object and f.instance.pk and f.DELETE %}
+                    <div class="d-flex justify-content-end mt-2">
+                        <div class="form-check form-switch formset-delete">
+                            {{ f.DELETE|add_class:"form-check-input"|attr:"role:switch" }}
+                            <label class="form-check-label text-danger small" for="{{ f.DELETE.id_for_label }}">
+                                Mark for removal
+                            </label>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+
+            <template id="ing-empty-form">
+                <div class="card p-3 mb-2">
+                    {% with f=ing_formset.empty_form %}
+                    {{ f.text }}
+                    {% endwith %}
+                </div>
+            </template>
+
+            <button type="button" id="add-ing" class="btn button-submit btn-sm mt-2">+ Add ingredient</button>
+
+
+            <!-- Method -->
+            <h3 class="h5 mt-4">Method</h3>
+            <p>List each step on a new line.</p>
+            {{ step_formset.management_form }}
+
+            {% if step_formset.non_form_errors %}
+            <div class="alert alert-danger">{{ step_formset.non_form_errors }}</div>
+            {% endif %}
+
+            <div id="step-forms">
+                {% for f in step_formset %}
+                <div class="card p-3 mb-2 step-row">
+                    {{ f.id }}
+                    {{ f.text }}
+                    {% if f.errors %}
+                    <div class="text-danger small mt-1">
+                        {% for field, errs in f.errors.items %}
+                        {% for e in errs %}<div>{{ e }}</div>{% endfor %}
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {% if object and f.instance.pk and f.DELETE %}
+                    <div class="d-flex justify-content-end mt-2">
+                        <div class="form-check form-switch formset-delete">
+                            {{ f.DELETE|add_class:"form-check-input"|attr:"role:switch" }}
+                            <label class="form-check-label text-danger small" for="{{ f.DELETE.id_for_label }}">
+                                Mark for removal
+                            </label>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+
+            <template id="step-empty-form">
+                <div class="card p-3 mb-2">
+                    {% with f=step_formset.empty_form %}
+                    {{ f.text }}
+                    {% endwith %}
+                </div>
+
+            </template>
+
+            <button type="button" id="add-step" class="btn button-submit btn-sm mt-2">+ Add step</button>
+            <div class="row">
+                {% if object %}
+                <div class="col-6 mt-1 text-center">
+                    {% else %}
+                <div class="col-12 mt-1 text-center">
+                {% endif %}
+                    <button type="submit" class="btn button-submit">
+                        {% if object %}
+                        Save changes
+                        {% else %}
+                        Submit
+                        {% endif %}
+                    </button>
+                </div>
+        </form>
+        <div class="col-6 mt-1 text-center">
+            {% if object %}
+            <form method="post" action="{% url 'recipe_delete' object.slug %}" class="d-inline"
+                onsubmit="return confirm('Delete this recipe? This cannot be undone.');">
+                {% csrf_token %}
+                <button type="submit" class="btn button-submit mb-2">Delete recipe</button>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extras %}
+<!-- custom js -->
+<script src="{% static 'js/recipe.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,87 @@
+/* CSS Variables */
+:root {
+    --colour1: #651F1F; /*dark burgundy*/
+    --colour2: #8A3324; /*medium burgundy*/
+    --colour3: #F2E8CF; /*beige*/
+    --colour4: #45513F; /*dark sage*/
+    --colour5: #C2D9B5; /*light sage*/
+    --colour6: #213B26; /*dark green*/
+    --colour7: #A7C957; /*light green*/
+    --colour8: #DEFF97; /*vibrant green*/
+
+    --font-dark: #1C2815; /*black green*/
+    --font-light: #FFFFFF; /*white*/
+
+    --font-family-base: 'Montserrat', sans-serif;
+    --font-family-heading: 'Montserrat Alternates', sans-serif;
+}
+
+/* Signup Page Specific Styles */
+h1 {
+  margin-block: 25px;
+  font-size: 35px;
+}
+
+.signup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.signup .form-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  column-gap: 10px;
+  align-items: center;
+  margin-bottom: 12px;
+  width: 100%;
+  max-width: 400px;
+}
+
+
+.required-label,
+.text-danger {
+  grid-column: 2;
+}
+
+.signup .form-row label {
+  width: 120px;
+  margin-right: 10px;
+  text-align: left;
+  font-weight: bold;
+}
+
+.signup .form-row input {
+  flex-grow: 1;
+  height: 45px;
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  display: block;
+}
+
+.required-label {
+  color: var(--colour2);
+  font-size: 12px;
+  display: block;
+  margin-top: 4px;
+  justify-self: end;
+}
+
+button.btn {
+    color: var(--font-light);
+    font-weight: bold;
+    border-color: var(--colour2);
+    background-color: var(--colour2);
+    padding-inline: 40px;
+    
+}
+
+button.btn:hover {
+    background-color: var(--colour3);
+    color: var(--colour1);
+    border-color: var(--colour2);
+    transform: scale(1.05);
+    transition: transform 0.3s, background-color 0.3s;
+}

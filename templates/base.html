@@ -1,0 +1,144 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+{% url 'home' as home_url %}
+{% url 'account_login' as login_url %}
+{% url 'account_signup' as signup_url %}
+{% url 'account_logout' as logout_url %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DishShare - Share and Discover Delicious Dishes">
+    <title>DishShare</title>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+    <!-- Global base.css -->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <!-- Page-specific CSS -->
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body class="d-flex flex-column h-100 main-bg" {% if post %}data-slug="{{ post.slug }}" {% endif %}></body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg custom-navbar navbar-dark">
+    <div class="container-fluid">
+        <a href="{% url 'home' %}">
+            <img src="{% static 'favicon/apple-touch-icon.png' %}" alt="DishShare Logo" width="30" height="24"
+                class="navbar-logo d-inline-block align-text-top">
+        </a>
+        <a class="navbar-brand {% if request.path == home_url %}active{% endif %}" href="{% url 'home' %}">DishShare</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            {% if user.is_authenticated %}
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'recipe_hub' %}">| Recipe Hub</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'submit_recipe' %}">| Submit Recipe</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        | Hey {{ user.username }} 👋🏼
+                    </a>
+                    <ul class="dropdown-menu menu-style">
+                        <li><a class="dropdown-item dropdown-style text-end" href="{% url 'my_submissions' %}">My
+                                Submissions</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
+                        href="{% url 'account_logout' %}">| Logout</a>
+                </li>
+                {% else %}
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'recipe_hub' %}">| Recipe Hub</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
+                            href="{% url 'account_signup' %}">| Register</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
+                            href="{% url 'account_login' %}">| Login</a>
+                    </li>
+                    {% endif %}
+                </ul>
+        </div>
+    </div>
+</nav>
+<!-- Django messages -->
+<div class="container" id="message-container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2 text-center">
+            {% if messages %}
+            {% for message in messages %}
+            {# Normalise to plain, lowercased text for matching #}
+            {% with text=message|striptags|lower %}
+            {% if "signed in" not in text and "logged in" not in text and "signed out" not in text and "you are signed in" not in text %}
+            <div id="msg" class="alert {{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message|safe }}
+                <button id="msg-btn" type="button" class="btn-close btn-close-white" data-bs-dismiss="alert"
+                    aria-label="Close"></button>
+            </div>
+            {% endif %}
+            {% endwith %}
+            {% endfor %}
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+
+<main class="flex-grow-1 main-bg">
+    {% if user.is_authenticated %}
+    <div id="login-status" class="flash">
+        <p class="text-end m-1">You are logged in ✅</p>
+    </div>
+    {% else %}
+    <div class="flash">
+        <p id="logout-status" class="text-end m-1">You are logged out 👋🏼</p>
+    </div>
+    {% endif %}
+
+    {% block content %}
+    <!-- Content Goes here -->
+    {% endblock content %}
+</main>
+
+<!-- Footer -->
+<footer id="footer-style" class="footer mt-auto py-3">
+    <div class="m-0 text-center text-white">
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener"
+            aria-label="Visit our Facebook page (opens in a new tab)"><i class="fab fa-facebook-square ms-3"></i></a>
+        <a href="https://www.twitter.com/" target="_blank" rel="noopener"
+            aria-label="Visit our Twitter page (opens in a new tab)"><i class="fab fa-twitter-square ms-3"></i></a>
+        <a href="https://www.instagram.com/" target="_blank" rel="noopener"
+            aria-label="Visit our Instagram page (opens in a new tab)"><i class="fab fa-instagram-square ms-3"></i></a>
+    </div>
+</footer>
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+{% block extras %}{% endblock %}
+<!-- custom js -->
+<script src="{% static 'js/flash.js' %}"></script>
+</script>
+<!-- Font Awesome script -->
+<script src="https://kit.fontawesome.com/79e37bf5f8.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
