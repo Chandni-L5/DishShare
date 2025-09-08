@@ -1,1 +1,0 @@
-web: gunicorn dishshare.wsgi
