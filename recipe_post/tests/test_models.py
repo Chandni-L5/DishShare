@@ -121,17 +121,12 @@ class RecipePostModelTest(TestCase):
         self.assertEqual(comment.status, 0)
         self.assertEqual(str(comment), f"on {post.title}")
 
-        Comment.objects.create(recipe=post, author=self.user, content="Another comment.")
+        Comment.objects.create(
+            recipe=post, author=self.user, content="Another comment."
+        )
         newest_first = list(
-            Comment.objects.filter(recipe=post).values_list("content", flat=True)
+            Comment.objects.filter(recipe=post).values_list(
+                "content", flat=True
+            )
         )
         self.assertEqual(newest_first[0], "This is a test comment.")
-
-
-
-# creates comment successfully with approved=False status
-# __str__ - links to recipe title and username
-
-
-# recipe.ingredients_rel.all() and recipe.method_rel.all()
-# return what we saved.
