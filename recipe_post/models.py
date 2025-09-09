@@ -3,9 +3,24 @@ from django.db.models import Max
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator
 from cloudinary.models import CloudinaryField
+from django.utils.text import slugify
 
 
 STATUS = ((0, "Draft"), (1, "Published"))
+
+
+def unique_slug_generator(instance, title):
+    """
+    Generates a unique slug for a given model instance based on the title.
+    Ensures that the slug is unique by appending a counter if necessary.
+    """
+    base_slug = slugify(title)
+    slug = base_slug
+    counter = 1
+    while RecipePost.objects.filter(slug=slug).exclude(pk=instance.pk).exists():
+        slug = f"{base_slug}-{counter}"
+        counter += 1
+    return slug
 
 
 # Create your models here.
@@ -17,7 +32,7 @@ class RecipePost(models.Model):
     """
     recipe_id = models.AutoField(primary_key=True)
     title = models.CharField(max_length=250)
-    slug = models.SlugField(max_length=250, unique=True)
+    slug = models.SlugField(max_length=250, unique=True, blank=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     image = CloudinaryField('image')
     difficulty = models.CharField(max_length=100, choices=[
@@ -34,6 +49,11 @@ class RecipePost(models.Model):
     created_on = models.DateField(auto_now_add=True)
     approved = models.BooleanField(default=False)
     status = models.IntegerField(choices=STATUS, default=0)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = unique_slug_generator(self, self.title)
+        super().save(*args, **kwargs)
 
     class Meta:
         ordering = ['-created_on']

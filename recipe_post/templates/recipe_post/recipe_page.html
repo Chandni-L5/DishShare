@@ -8,7 +8,13 @@
 <div class="container">
     <div class="row text-center">
         <h1>{{ post.title }}</h1>
-        <p>By: {{ post.author }}</p>
+        <p>By: {{ post.author }} on {{ post.created_on }}</p>
+        {% if is_author %}
+        <span class="mb-2">
+        <a href="{% url 'recipe_edit' post.slug %}" class="btn text-center">Edit</a>
+        <a href="{% url 'recipe_delete' post.slug %}" class="btn text-center" onclick="return confirm('Are you sure you want to delete this recipe?');">Delete</a>
+        </span>
+        {% endif %}
         <!-- insert add to faves and upvote and downvote here -->
     </div>
     <div class="row">
