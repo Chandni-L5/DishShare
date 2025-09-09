@@ -1,4 +1,4 @@
-from allauth.account.forms import SignupForm
+from allauth.account.forms import SignupForm, LoginForm
 from django import forms
 from django.core.exceptions import ValidationError
 
@@ -51,3 +51,10 @@ class CustomSignupForm(SignupForm):
     def save(self, request):
         user = super().save(request)
         return user
+
+
+class CustomLoginForm(LoginForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        if "remember" in self.fields:
+            del self.fields["remember"]

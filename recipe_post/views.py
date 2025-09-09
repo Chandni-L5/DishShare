@@ -37,7 +37,7 @@ def recipe_page(request, slug):
         .prefetch_related('ingredients_rel', 'method_rel', 'comments')
     )
     post = get_object_or_404(queryset, slug=slug, status=1)
-    comments = post.comments.filter(approved=True)
+    comment = post.comments.filter(approved=True)
     is_author = request.user.is_authenticated and request.user == post.author
 
     if request.method == "POST":

@@ -17,7 +17,9 @@ def unique_slug_generator(instance, title):
     base_slug = slugify(title)
     slug = base_slug
     counter = 1
-    while RecipePost.objects.filter(slug=slug).exclude(pk=instance.pk).exists():
+    while RecipePost.objects.filter(
+        slug=slug
+    ).exclude(pk=instance.pk).exists():
         slug = f"{base_slug}-{counter}"
         counter += 1
     return slug

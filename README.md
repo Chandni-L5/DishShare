@@ -258,15 +258,6 @@ During the designing and styling process of the website, I have kept in mind to 
 
 ## Deployment
 
-### Deploy to GitHub
-
-1. Log in to GitHub and navigate to the [DishShare repository](https://github.com/Chandni-L5/DishShare)
-2. Click the settings button.
-3. Select pages in the left hand navigation menu. 
-4. From the source dropdown select 'Deploy from a branch' and in the branch dropdown select 'main' and press save.
-5. The site has now been deployed.
-6. When returning to the code page in the repository a Deployments section will appear in the right side column - this process may take a few minutes before the site goes live. The deployed sight can be accessed via this link.
-
 ### Deploy to Heroku 
 Deployed to Heroku:
 

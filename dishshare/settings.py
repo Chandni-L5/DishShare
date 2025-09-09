@@ -33,7 +33,7 @@ SECRET_KEY = (
 )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '.herokuapp.com',
@@ -196,7 +196,8 @@ AUTHENTICATION_BACKENDS = [
 ACCOUNT_SIGNUP_FIELDS = [
     'username*', 'email*', 'email2*', 'password1*', 'password2*'
 ]
-ACCOUNT_FORMS = {'signup': 'accounts.forms.CustomSignupForm'}
+ACCOUNT_FORMS = {'signup': 'accounts.forms.CustomSignupForm', 
+                 'login': 'accounts.forms.CustomLoginForm'}
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = True
 
