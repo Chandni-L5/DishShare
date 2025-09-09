@@ -10,19 +10,19 @@ class RecipePostForm(forms.ModelForm):
     Form for users to submit a recipe to be reviewed by admin.
     related to :model:`recipe_post.RecipePost`.`authUser`
     """
+
     class Meta:
         model = RecipePost
         fields = ["title", "difficulty", "duration", "summary", "image"]
         widgets = {
-            "title": forms.TextInput(attrs={
-                "placeholder": "Recipe title"
-            }),
-            "summary": forms.Textarea(attrs={
-                "rows": 2, "placeholder": "Brief description"
-            }),
-            "duration": forms.NumberInput(attrs={
-                "min": 1, "placeholder": "in minutes"
-            }),
+            "title": forms.TextInput(attrs={"placeholder": "Recipe title"}),
+            "summary": forms.Textarea(
+                attrs={"rows": 2, "placeholder": "Brief description"}
+            ),
+            "duration": forms.NumberInput(
+                attrs={"min": 1, "placeholder": "in minutes"}
+            ),
+            "image": forms.FileInput(attrs={"class": "form-control"}),
         }
 
     def __init__(self, *args, **kwargs):
@@ -50,9 +50,7 @@ IngredientsFormSetCreate = inlineformset_factory(
     can_delete=False,
     min_num=1,
     validate_min=True,
-    widgets={"text": forms.TextInput(attrs={
-        "placeholder": "e.g. 2 cups of flour"
-    })},
+    widgets={"text": forms.TextInput(attrs={"placeholder": "e.g. 2 cups of flour"})},
 )
 
 IngredientsFormSetEdit = inlineformset_factory(
@@ -63,9 +61,7 @@ IngredientsFormSetEdit = inlineformset_factory(
     can_delete=True,
     min_num=1,
     validate_min=True,
-    widgets={"text": forms.TextInput(attrs={
-        "placeholder": "e.g. 2 cups of flour"
-    })},
+    widgets={"text": forms.TextInput(attrs={"placeholder": "e.g. 2 cups of flour"})},
 )
 
 MethodFormSetCreate = inlineformset_factory(
@@ -76,10 +72,14 @@ MethodFormSetCreate = inlineformset_factory(
     can_delete=False,
     min_num=1,
     validate_min=True,
-    widgets={"text": forms.Textarea(attrs={
-        "placeholder": "e.g. Preheat the oven to 180C",
-        "rows": 2,
-    })},
+    widgets={
+        "text": forms.Textarea(
+            attrs={
+                "placeholder": "e.g. Preheat the oven to 180C",
+                "rows": 2,
+            }
+        )
+    },
 )
 
 MethodFormSetEdit = inlineformset_factory(
@@ -90,8 +90,12 @@ MethodFormSetEdit = inlineformset_factory(
     can_delete=True,
     min_num=1,
     validate_min=True,
-    widgets={"text": forms.Textarea(attrs={
-        "placeholder": "e.g. Preheat the oven to 180C",
-        "rows": 2,
-    })},
+    widgets={
+        "text": forms.Textarea(
+            attrs={
+                "placeholder": "e.g. Preheat the oven to 180C",
+                "rows": 2,
+            }
+        )
+    },
 )
