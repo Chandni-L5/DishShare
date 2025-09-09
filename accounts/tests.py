@@ -34,13 +34,13 @@ class CustomSignupFormTest(TestCase):
         self.assertIn("password1", form.errors)
         self.assertIn("password2", form.errors)
 
-    def test_email_mismatch_non_field_error(self):
-        # Test that email mismatch raises a non-field error
+    def test_email_mismatch_sets_error_on_confirm_email_field(self):
         form = CustomSignupForm(
-            data=self.valid_data(confirm_email="different@example.com")
+            data=self.valid_data(email="user@example.com", confirm_email="other@example.com")
         )
         self.assertFalse(form.is_valid())
-        self.assertIn("Email does not match.", form.non_field_errors())
+        self.assertIn("confirm_email", form.errors)
+        self.assertTrue(any("match" in e.lower() for e in form.errors["confirm_email"]))
 
     def test_password_mismatch_error(self):
         # Test that password mismatch raises an error on password2 field

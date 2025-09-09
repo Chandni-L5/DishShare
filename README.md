@@ -206,9 +206,6 @@ Wireframes have been created with desktop, tablet and mobile viewports in mind. 
 #### All Pages
 <!--  -->
 
-### Future Implementations
-<!--  -->
-
 ### Accessibility 
 
 During the designing and styling process of the website, I have kept in mind to aim to make the page as user friendly and accessible as possible. I have achieved this by:
@@ -231,8 +228,8 @@ During the designing and styling process of the website, I have kept in mind to 
 
 ## Technologies Used
 
-- **Frontend:** HTML, CSS, JavaScript, Bootstrap, Poppers
-- **Backend:** Python, Django 
+- **Frontend:** HTML, CSS, Bootstrap, Poppers
+- **Backend:** Python, Django, JavaScript
 - **Database:** PostgreSQL
 - **Development Tools:**
     - [GitHub](https://github.com/) - for version control
@@ -246,6 +243,8 @@ During the designing and styling process of the website, I have kept in mind to 
     - [Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/) for CSS validation
     - Chrome Dev Tools for debugging
     - Chrome Lighthouse for performance testing
+    - Node Modules - poppers
+    - sqlite3
 - **Django Packages**
     - django-allauth
     - django-crispy-forms
@@ -285,6 +284,72 @@ cd DishShare
 
 ## Testing
 
+### Automated testing 
+The automated testing carried out in this project was executed using the SQLite test database which automatically creates and wipes during each run to ensure a fresh and isolated testing environment and specifically verifies the Django based functionality.
+
+The tests cover multiple layers of the application:
+
+1.  Error Handling
+    - verified that the custom error templates are displayed correctly when triggered
+2. Model classes
+
+    RecipePost
+    - successfully creates recipes with valid inputs
+    - duration validation - input must be more than 1
+    - enforce unique slugs
+
+    Ingredients & Method
+    - Automatically increments `order` as items are added 
+    - Deletion cascades, when a recipe is removed
+    - prevent duplicate combinations
+
+    Comment
+    - default to 'draft'
+    - returns the correct string representation
+    - comments ordered by creation date
+
+3. Views
+    - homepage and hub only displays published recipes
+    - invalid slugs render 404 error response
+    - `edit`/`delete`/`comment`/`submission` functionality is only accessible to logged in users 
+
+4. Forms
+    - `RecipePostForm` validate models, forms, views and error handling as expected 
+    - invalid data rejected - resulting in appropriate error message 
+
+The code to display the tests is presented within the respective directories and can be identified with the prefix test. 
+
+```
+dishshare/
+├── accounts/
+│ └── tests/
+│ ├── test_forms.py
+│ └── test_views.py
+├── recipe_post/
+│ └── tests/
+│ ├── test_models.py
+│ ├── test_forms.py
+│ └── test_errors.py
+├── submissions/
+│ └── tests/
+│ └── test_views.py
+```
+
+To run the full test suite, use the following command from the root of the project:
+
+`python manage.py test`
+
+All automated tests have produced a positive result.
+
+
+### [Manual testing](/documentation/manual_testing.md)
+
+Manual testing was implemented throughout the whole development process of this project. Each item was built incrementally and tested before moving on to the next.
+
+ This iterative approach helped to identify issues early and resolve them along the way. This has resulted in a more stable application as a whole. 
+
+ Nearing the conclusion of the project I have implemented a more structured approach to the manual testing to verify that all the features have achieved the intended requirements and behave as expected under different conditions. The tests are based on the expected outcome of each feature and  the full breakdown of the manual tests are displayed [here](/documentation/manual_testing.md). 
+
 ### Testing User Stories
 <!--  -->
 
@@ -312,6 +377,9 @@ disabling allauth auto messages to favour the js popup message
 ### Autoprefixer CSS 
 <!--  -->
 
+--- 
+## Future Implementations
+<!--  -->
 --- 
 
 ## Credits
