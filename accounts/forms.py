@@ -54,7 +54,11 @@ class CustomSignupForm(SignupForm):
 
 
 class CustomLoginForm(LoginForm):
+    # Function to override the default django allauth login form
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        if "remember" in self.fields:
-            del self.fields["remember"]
+        field = self.fields.get("remember")
+        if field:
+            field.widget = forms.HiddenInput()
+            field.required = False
+            self.initial["remember"] = False

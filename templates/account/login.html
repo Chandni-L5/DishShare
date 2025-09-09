@@ -23,7 +23,7 @@
         {% endif %}
         <button class="primaryAction mb-3" type="submit">{% trans "Login" %}</button><br>
         <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-        <p>{% blocktrans %}<a href="{{ signup_url }}">New here? Register today!</a>{% endblocktrans %}</p>
+        <p class="mt-1">{% blocktrans %}<a href="{{ signup_url }}">New here? Register today!</a>{% endblocktrans %}</p>
       </form>
     </div>
   </div>
