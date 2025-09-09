@@ -44,7 +44,10 @@ class CustomSignupForm(SignupForm):
         confirm_email = cleaned_data.get("confirm_email")
 
         if email and confirm_email and email != confirm_email:
-            raise ValidationError("Email does not match.")
+            self.add_error(
+                "confirm_email", ValidationError("Emails do not match")
+            )
+        return cleaned_data
 
         return cleaned_data
 
