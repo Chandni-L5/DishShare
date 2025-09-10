@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load static %}
 {% load static safe_media %}
 
 {% block extra_css %}
@@ -8,7 +7,6 @@
 {% endblock %}
 
 {% block content %}
-
 <div class="container mt-3">
     <div class="row text-center mb-4">
         <h1>My Submissions</h1>
@@ -18,13 +16,13 @@
         <div class="hero-section text-center">
             <p class="lead mt-3"><strong>Find all your submissions here!</strong></p>
         </div>
+
         <!-- dropdown filter -->
         <div class="dropup text-end mb-2">
             <button class="global-button dropdown-toggle" type="button" id="filterDropdown" data-bs-toggle="dropdown"
                 aria-expanded="false">
                 Filter Recipes
             </button>
-
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="filterDropdown">
                 <li>
                     <a href="{% url 'my_submissions' %}"
@@ -51,40 +49,51 @@
         <div class="row justify-content-center">
             {% for recipe in recipes %}
             <div class="col-sm-6 col-md-3 mb-4" id="small-card">
-                {% if recipe.slug %}
-                {% with imgurl=recipe.image|safe_url %}
-                <a href="{% url 'recipe_page' recipe.slug %}" class="post-link text-decoration-none">
-                    <div class="card h-100 d-flex flex-column" id="top-card-style">
-                        <img src="{{ imgurl }}" class="card-img-top h-200" id="img-index"
-                            alt="{{ recipe.title }}">
+                <div class="card h-100 d-flex flex-column" id="top-card-style">
+
+                    <a class="post-link text-decoration-none"
+                        {% if recipe.slug %}href="{% url 'recipe_page' recipe.slug %}" {% else %}href="#"
+                        aria-disabled="true" {% endif %}>
+                        {% with imgurl=recipe.image|safe_url %}
+                        {% if imgurl %}
+                        <img src="{{ imgurl }}" class="card-img-top h-200" id="img-index" alt="{{ recipe.title }}">
                         {% else %}
                         <img src="{% static 'images/placeholder.webp' %}" class="card-img-top h-200" id="img-index"
                             alt="placeholder image">
                         {% endif %}
-                {% endwith %}
+                        {% endwith %}
+
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">{{ recipe.title }}</h5>
                             <p class="card-text">{{ recipe.summary }}</p>
-                </a><br>
-                <span class="text-end"> Created on: {{ recipe.created_on|date:"SHORT_DATE_FORMAT" }}</span><br>
-                <span class="mt-auto text-end d-block mt-2">
-                    <a href="{% url 'recipe_edit' recipe.slug %}"><button class="edit-btn">Edit</button></a>
-                    <form method="post" action="{% url 'recipe_delete' recipe.slug %}" class="d-inline"
-                        id="delete-form-{{ forloop.counter }}">
-                        {% csrf_token %}
-                        <button type="button" class="edit-btn js-delete-trigger" data-bs-toggle="modal"
-                            data-bs-target="#deleteRecipeModal" data-form="#delete-form-{{ forloop.counter }}">
-                            Delete
-                        </button>
-                    </form>
-                </span>
-                {% endif %}
+                        </div>
+                    </a>
+
+                    <div class="px-3 pb-3">
+                        <span class="text-end d-block">Created on:
+                            {{ recipe.created_on|date:"SHORT_DATE_FORMAT" }}</span>
+                        <span class="mt-2 d-block text-end">
+                            {% if recipe.slug %}
+                            <a href="{% url 'recipe_edit' recipe.slug %}"><button class="edit-btn">Edit</button></a>
+                            <form method="post" action="{% url 'recipe_delete' recipe.slug %}" class="d-inline"
+                                id="delete-form-{{ forloop.counter }}">
+                                {% csrf_token %}
+                                <button type="button" class="edit-btn js-delete-trigger" data-bs-toggle="modal"
+                                    data-bs-target="#deleteRecipeModal" data-form="#delete-form-{{ forloop.counter }}">
+                                    Delete
+                                </button>
+                            </form>
+                            {% endif %}
+                        </span>
+                    </div>
+
+                </div>
             </div>
+            {% empty %}
+            <p>You have not submitted any recipes yet.</p>
+            {% endfor %}
         </div>
     </div>
-    {% empty %}
-    <p>You have not submitted any recipes yet.</p>
-    {% endfor %}
 </div>
 
 <!-- Delete Recipe Modal -->
@@ -96,9 +105,7 @@
                 <h1 class="modal-title fs-5" id="deleteRecipeModalLabel">Delete recipe?</h1>
                 <button type="button" class="btn-close close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
-                This action cannot be undone.
-            </div>
+            <div class="modal-body">This action cannot be undone.</div>
             <div class="modal-footer">
                 <button type="button" class="btn close-btn" data-bs-dismiss="modal">Cancel</button>
                 <button type="button" class="btn close-btn" id="confirmDeleteBtn">Delete</button>
@@ -106,7 +113,6 @@
         </div>
     </div>
 </div>
-
 {% endblock %}
 
 {% block extras %}
