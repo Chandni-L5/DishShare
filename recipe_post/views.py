@@ -1,9 +1,10 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views import generic
 from django.contrib import messages
-from django.http import HttpResponseRedirect
 from .models import RecipePost, Comment
 from .forms import CommentForm
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_http_methods
 
 
 # Create your views here.
@@ -32,12 +33,7 @@ def recipe_page(request, slug):
     **Template**
     :template:`recipe_post/recipe_page.html`
     """
-    queryset = (
-        RecipePost.objects.filter(status=1)
-        .prefetch_related('ingredients_rel', 'method_rel', 'comments')
-    )
-    post = get_object_or_404(queryset, slug=slug, status=1)
-    comment = post.comments.filter(approved=True)
+    post = get_object_or_404(RecipePost, slug=slug)
     is_author = request.user.is_authenticated and request.user == post.author
 
     if request.method == "POST":
@@ -47,19 +43,26 @@ def recipe_page(request, slug):
             comment.author = request.user
             comment.recipe = post
             comment.save()
-            messages.add_message(
-                request, messages.SUCCESS,
+            messages.success(
+                request,
                 ('Your comment has been submitted successfully and is '
                  'awaiting approval.')
             )
-    comment_form = CommentForm()
+            return redirect('recipe_page', slug=post.slug)
+    else:
+        comment_form = CommentForm()
+
+    comment_qs = (
+        post.comments.all()
+        if is_author else post.comments.filter(approved=True)
+    ).order_by('-created_on')
 
     context = {
         "post": post,
         "ingredients": post.ingredients_rel.order_by('order'),
         "steps": post.method_rel.order_by('order'),
-        "comments": post.comments.all().order_by('-created_on'),
-        "comment_count": post.comments.filter(approved=True).count(),
+        "comments": comment_qs,
+        "comment_count": comment_qs.count(),
         "comment_form": comment_form,
         "is_author": is_author
     }
@@ -70,39 +73,44 @@ def recipe_page(request, slug):
     )
 
 
+@login_required
+@require_http_methods(["POST", "GET"])
 def comment_edit(request, slug, comment_id):
     """
     view to edit a comment made by a user on a recipe post.
     """
+    post = get_object_or_404(RecipePost, slug=slug)
+    comment = get_object_or_404(
+        Comment, id=comment_id, recipe=post, author=request.user
+    )
+
     if request.method == "POST":
-        queryset = RecipePost.objects.filter(status=1)
-        post = get_object_or_404(queryset, slug=slug)
-        comment = get_object_or_404(Comment, id=comment_id, pk=comment_id)
-        comment_form = CommentForm(data=request.POST, instance=comment)
-        if comment_form.is_valid() and comment.author == request.user:
-            comment = comment_form.save(commit=False)
-            comment.post = post
-            comment.approved = False
-            comment.save()
-            messages.add_message(
-                request, messages.SUCCESS,
-                ('Comment Updated!')
-            )
+        form = CommentForm(request.POST, instance=comment)
+        if form.is_valid():
+            updated = form.save(commit=False)
+            updated.recipe = post
+            updated.approved = False
+            updated.save()
+            messages.success(request, "Your comment has been updated!")
         else:
-            messages.add_message(
-                request, messages.ERROR,
-                ('Error updating comment.')
+            messages.error(
+                request,
+                "There was an error updating your comment. Please try again."
             )
-    return HttpResponseRedirect(reverse('recipe_page', args=[slug]))
+    return redirect('recipe_page', slug=post.slug)
 
 
+@login_required
+@require_http_methods(["GET"])
 def comment_delete(request, slug, comment_id):
     """
     view to delete comment
     """
-    post = get_object_or_404(RecipePost, status=1, slug=slug)
-    comment = get_object_or_404(Comment, pk=comment_id, recipe=post)
+    post = get_object_or_404(RecipePost, slug=slug)
+    comment = get_object_or_404(
+        Comment, id=comment_id, recipe=post, author=request.user
+    )
 
     comment.delete()
-    messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
-    return HttpResponseRedirect(reverse('recipe_page', args=[slug]))
+    messages.success(request, "Comment deleted!")
+    return redirect("recipe_page", slug=slug)
