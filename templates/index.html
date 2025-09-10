@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load safe_media %}
 
 {% block content %}
 
@@ -26,11 +27,12 @@
         <div class="row justify-content-center">
             {% for post in recipepost_list %}
                 {% if forloop.counter <= 4 %}
+                {% with imgurl=post.image|safe_url %}
                 <div class="col-sm-6 col-md-3 mb-4" id="small-card">
                     <a href="{% url 'recipe_page' post.slug %}" class="post-link">
                         <div class="card h-100 d-flex flex-column" id="top-card-style">
-                            {% if post.image %}
-                            <img src="{{ post.image.url }}" class="card-img-top h-200" id="img-index" alt="{{ post.title }}">
+                            {% if imgurl %}
+                            <img src="{{ imgurl }}" class="card-img-top h-200" id="img-index" alt="{{ post.title }}">
                             {% else %}
                             <img src="{% static 'images/placeholder.webp' %}" class="card-img-top h-200" id="img-index" alt="placeholder image">
                             {% endif %}
