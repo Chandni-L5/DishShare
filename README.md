@@ -37,13 +37,13 @@ The development and the planning of this project has been created with the Agile
 
 Epics have been condensed to bitesize user stories.
 
-📚 The epics can be viewed [here](/documentation/epics.md)
+📚 [The epics can be viewed here](/documentation/epics.md)
 
-📓 The user stories can be viewed [here](/documentation/user-stories.md)
+📓 [The user stories can be viewed here](/documentation/user-stories.md)
 
  The implementation and prioritization of user stories as well as the acceptance criteria is recorded and tracked dynamically through the use of GitHub Projects Kanban board. The Kanban board records the user story, acceptance criteria and tasks. These are checked off as we progress through the project.
 
-📊 The board can be viewed [here](https://github.com/users/Chandni-L5/projects/11/views/3)
+📊 [The board can be viewed here](https://github.com/users/Chandni-L5/projects/11/views/3)
 
 #### Estimation
 
