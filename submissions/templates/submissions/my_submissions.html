@@ -51,10 +51,16 @@
             {% for recipe in recipes %}
             <div class="col-sm-6 col-md-3 mb-4" id="small-card">
                 {% if recipe.slug %}
+                {% with imgurl=recipe.image|safe_url %}
                 <a href="{% url 'recipe_page' recipe.slug %}" class="post-link text-decoration-none">
                     <div class="card h-100 d-flex flex-column" id="top-card-style">
-                        <img src="{{ recipe.image.url }}" class="card-img-top h-200" id="img-index"
+                        <img src="{{ imgurl }}" class="card-img-top h-200" id="img-index"
                             alt="{{ recipe.title }}">
+                        {% else %}
+                        <img src="{% static 'images/placeholder.webp' %}" class="card-img-top h-200" id="img-index"
+                            alt="placeholder image">
+                        {% endif %}
+                {% endwith %}
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">{{ recipe.title }}</h5>
                             <p class="card-text">{{ recipe.summary }}</p>
