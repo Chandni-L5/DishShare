@@ -29,7 +29,7 @@
     --font-family-heading: 'Montserrat Alternates', sans-serif;
 }
 
-#deleteConfirmBtn {
+button.btn.close-btn {
     --bs-btn-bg: var(--colour3);
     --bs-btn-color: var(--colour2);
     --bs-btn-border-color: var(--colour2);
@@ -41,7 +41,7 @@
     font-weight: bold;
 }
 
-#deleteConfirmBtn:hover {
+button.btn.close-btn:hover {
     background-color: var(--colour2);
     color: var(--font-light);
     border-color: var(--colour2);

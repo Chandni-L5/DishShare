@@ -128,8 +128,8 @@ def recipe_delete(request, slug):
     """
     View to handle deleting an existing recipe by its author.
     """
-    post = get_object_or_404(RecipePost, slug=slug, author=request.user)
-    post.delete()
+    recipe = get_object_or_404(RecipePost, slug=slug, author=request.user)
+    recipe.delete()
     messages.success(request, "Your recipe has been deleted!")
     return redirect("my_submissions")
 

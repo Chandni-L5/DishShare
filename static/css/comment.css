@@ -51,7 +51,6 @@
 
 .comment-box {
     border: var(--colour4) 2px solid;
-    border-radius: 5px;
     margin-bottom: 1em;
     padding: 1rem;
 }

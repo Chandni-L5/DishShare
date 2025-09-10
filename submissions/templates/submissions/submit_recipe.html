@@ -3,6 +3,7 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/submit.css' %}">
+<link rel="stylesheet" href="{% static 'css/delete.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -121,27 +122,48 @@
                 {% if object %}
                 <div class="col-6 mt-1 text-center">
                     {% else %}
-                <div class="col-12 mt-1 text-center">
-                {% endif %}
-                    <button type="submit" class="btn button-submit">
-                        {% if object %}
-                        Save changes
-                        {% else %}
-                        Submit
+                    <div class="col-12 mt-1 text-center">
                         {% endif %}
-                    </button>
-                </div>
+                        <button type="submit" class="btn button-submit">
+                            {% if object %}
+                            Save changes
+                            {% else %}
+                            Submit
+                            {% endif %}
+                        </button>
+                    </div>
         </form>
         <div class="col-6 mt-1 text-center">
             {% if object %}
-            <form method="post" action="{% url 'recipe_delete' object.slug %}" class="d-inline"
-                onsubmit="return confirm('Delete this recipe? This cannot be undone.');">
+            <form method="post" action="{% url 'recipe_delete' object.slug %}" class="d-inline" id="delete-form-page">
                 {% csrf_token %}
-                <button type="submit" class="btn button-submit mb-2">Delete recipe</button>
+                <button type="button" class="button-submit rounded js-delete-trigger" data-bs-toggle="modal"
+                    data-bs-target="#deleteRecipeModal" data-form="#delete-form-page">
+                    Delete
+                </button>
             </form>
             {% endif %}
         </div>
     </div>
+</div>
+
+<!-- delete recipe confirmation modal -->
+<div class="modal fade" id="deleteRecipeModal" tabindex="-1" aria-hidden="true" aria-labelledby="deleteRecipeModalLabel">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="deleteRecipeModalLabel">Delete recipe?</h1>
+        <button type="button" class="btn-close close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        This action cannot be undone.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn close-btn" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn close-btn" id="confirmDeleteBtn">Delete</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 {% endblock %}
@@ -149,4 +171,5 @@
 {% block extras %}
 <!-- custom js -->
 <script src="{% static 'js/recipe.js' %}"></script>
+<script src="{% static 'js/delete.js' %}"></script>
 {% endblock %}
