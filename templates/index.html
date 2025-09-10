@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block content %}
 
@@ -8,12 +9,12 @@
         <h1 class="display-4">Welcome to your cooking community!</h1>
         {% if user.is_authenticated %}
         <p class="lead mt-2 p-2">DishShare is your platform for sharing and discovering delicious recipes.</p>
-        <a class="btn btn primary btn-lg mt-3" href="{% url 'submit_recipe' %}">Share your own recipes</a>
-        <a class="btn btn secondary btn-lg mt-3" href="{% url 'recipe_hub' %}">Explore more recipes</a>
+        <a class="btn btn-lg mt-3" href="{% url 'submit_recipe' %}">Share your own recipes</a>
+        <a class="btn btn-lg mt-3" href="{% url 'recipe_hub' %}">Explore more recipes</a>
         {% else %}
         <p class="lead mt-2 p-2">DishShare is your platform for sharing and discovering delicious recipes. Join our community now!</p>
-        <a class="btn btn-primary btn-lg mt-3" href="{% url 'account_signup' %}">Register Now!</a>
-        <a class="btn btn-secondary btn-lg mt-3" href="{% url 'account_login' %}">Login</a>
+        <a class="btn btn-lg mt-3" href="{% url 'account_signup' %}">Register Now!</a>
+        <a class="btn btn-lg mt-3" href="{% url 'account_login' %}">Login</a>
         {% endif %}
     </div>
 
@@ -30,6 +31,8 @@
                         <div class="card h-100 d-flex flex-column" id="top-card-style">
                             {% if post.image %}
                             <img src="{{ post.image.url }}" class="card-img-top h-200" id="img-index" alt="{{ post.title }}">
+                            {% else %}
+                            <img src="{% static 'images/placeholder.webp' %}" class="card-img-top h-200" id="img-index" alt="placeholder image">
                             {% endif %}
                             <div class="card-body d-flex flex-column">
                                 <h5 class="card-title">{{ post.title }}</h5>
