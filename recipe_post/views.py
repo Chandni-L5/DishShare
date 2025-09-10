@@ -5,6 +5,7 @@ from .models import RecipePost, Comment
 from .forms import CommentForm
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_http_methods
+from django.db.models import Q
 
 
 # Create your views here.
@@ -34,7 +35,9 @@ def recipe_page(request, slug):
     :template:`recipe_post/recipe_page.html`
     """
     post = get_object_or_404(RecipePost, slug=slug)
-    is_author = request.user.is_authenticated and request.user == post.author
+    is_recipe_author = (
+        request.user.is_authenticated and request.user == post.author
+    )
 
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
@@ -52,10 +55,14 @@ def recipe_page(request, slug):
     else:
         comment_form = CommentForm()
 
-    comment_qs = (
-        post.comments.all()
-        if is_author else post.comments.filter(approved=True)
-    ).order_by('-created_on')
+    if request.user.is_authenticated:
+        comment_qs = post.comments.filter(
+            Q(approved=False) | Q(author=request.user)
+        )
+    else:
+        comment_qs = post.comments.filter(approved=True)
+
+    comment_qs = comment_qs.order_by('-created_on')
 
     context = {
         "post": post,
@@ -64,7 +71,7 @@ def recipe_page(request, slug):
         "comments": comment_qs,
         "comment_count": comment_qs.count(),
         "comment_form": comment_form,
-        "is_author": is_author
+        "is_author": is_recipe_author
     }
 
     return render(
