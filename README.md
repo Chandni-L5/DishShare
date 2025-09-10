@@ -4,7 +4,7 @@
 
 Whether you are seeking inspiration for your next meal or want to showcase your culinary creativity, DishShare makes it easier to connect with food lovers across the world at your fingertips. 
 
-<!-- Insert AmIResponsive image here -->
+![amiresponsive screenshot](/documentation/images/amiresponsive.webp)
 
 - - -
 
@@ -257,16 +257,6 @@ During the designing and styling process of the website, I have kept in mind to 
 
 ## Deployment
 
-### Deploy to Heroku 
-Deployed to Heroku:
-
-1. Create a new Heroku app.
-2. Connect the app to this GitHub repo.
-3. Set Config Vars (see below).
-4. Push to main to trigger a build & deploy.
-
-This site is deployed via Heroku with PostgreSQL database, Cloudinary for media storage, and Whitenoise for static files.
-
 ### Fork the Repository
 To create your own copy of this project:
 1. Log in to GitHub and navigate to the [DishShare repository](https://github.com/Chandni-L5/DishShare)
@@ -279,6 +269,40 @@ To create a local copy on your machine:
 git clone https://github.com/Chandni-L5/DishShare
 cd DishShare
 ```
+
+### Deploy to Heroku 
+
+To deploy this project to Heroku, follow these steps:
+1. If you don't have one already, create a [Heroku](https://www.heroku.com/) account.
+2. Go to the [Heroku dashboard](https://dashboard.heroku.com/apps) and log in.
+3. Click the "New" button in the top right corner and select "Create new app".
+4. Enter a unique name for your app and select your preferred region.
+5. Click "Create app".
+
+6. Please ensure you have completed the following steps before deploying to Heroku:
+    1. Install a production ready web server such as Gunicorn by running the following command in your terminal:  
+   `pip install gunicorn`
+    2. Create a `requirements.txt` file by running the following command in your terminal:  
+   `pip freeze --local > requirements.txt`
+    3. Create a `Procfile` in the root directory of your project and add the following line:  
+   `web: gunicorn dishshare.wsgi`
+    5. Ensure your `settings.py` file is configured for production, including setting `DEBUG = False` and add your Heroku app to `ALLOWED_HOSTS = ['.herokuapp.com']`.
+    6. Commit and push your changes to your GitHub repository.
+7. Return to the Heroku dashboard and navigate to the "Deploy" tab of your app.
+8. Under "Deployment method", select "GitHub" and connect your GitHub account if you haven't already.
+9. Search for your repository and click "Connect".
+10. Go to settings tab and click 'Reveal Config Vars' and add the following:
+    - `DATABASE_URL` - your database URL from Heroku Postgres
+    - `CLOUDINARY_URL` - your Cloudinary URL for media storage
+    - `SECRET_KEY` - a secret key for your Django application
+
+These details will need to be stored in a `.env` file in your local environment.
+
+11. Scroll to the bottom of the page and click 'Deploy Branch' to start a manual deployment of the main branch.
+12. Open the Resources tab and ensure that the eco dynos is enabled.
+13. Once the deployment is complete, click "View" or "Open app" to see your live application.
+
+This site is deployed via Heroku with PostgreSQL database, Cloudinary for media storage, and Whitenoise for static files.
 
 - - - 
 
@@ -361,9 +385,6 @@ disabling allauth auto messages to favour the js popup message
 - https://www.geeksforgeeks.org/python/python-extending-and-customizing-django-allauth/
 - https://stackoverflow.com/questions/45225384/django-messages-how-to-hide-specific-ones?utm_source=chatgpt.com
 
-
-### Manual Testing 
-<!--  -->
 
 ### Lighthouse
 <!--  -->
