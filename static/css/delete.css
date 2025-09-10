@@ -1,0 +1,48 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* CSS Variables */
+:root {
+    --colour1: #651F1F;
+    /*dark burgundy*/
+    --colour2: #8A3324;
+    /*medium burgundy*/
+    --colour3: #F2E8CF;
+    /*beige*/
+    --colour4: #45513F;
+    /*dark sage*/
+    --colour5: #C2D9B5;
+    /*light sage*/
+    --colour6: #213B26;
+    /*dark green*/
+    --colour7: #A7C957;
+    /*light green*/
+    --colour8: #DEFF97;
+    /*vibrant green*/
+
+    --font-dark: #1C2815;
+    /*black green*/
+    --font-light: #FFFFFF;
+    /*white*/
+
+    --font-family-base: 'Montserrat', sans-serif;
+    --font-family-heading: 'Montserrat Alternates', sans-serif;
+}
+
+#deleteConfirmBtn {
+    --bs-btn-bg: var(--colour3);
+    --bs-btn-color: var(--colour2);
+    --bs-btn-border-color: var(--colour2);
+    --bs-btn-hover-bg: var(--colour2);
+    --bs-btn-hover-color: var(--font-light);
+    --bs-btn-hover-border-color: var(--colour2);
+    padding-inline: 20px;
+    font-size: large;
+    font-weight: bold;
+}
+
+#deleteConfirmBtn:hover {
+    background-color: var(--colour2);
+    color: var(--font-light);
+    border-color: var(--colour2);
+}

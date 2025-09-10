@@ -3,6 +3,7 @@
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/submit.css' %}">
+<link rel="stylesheet" href="{% static 'css/delete.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -75,7 +76,29 @@
     <p>You have not submitted any recipes yet.</p>
     {% endfor %}
 </div>
+
+<!-- Delete Recipe Modal -->
+<div class="modal fade" id="deleteRecipeModal" tabindex="-1" aria-hidden="true"
+    aria-labelledby="deleteRecipeModalLabel">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="deleteRecipeModalLabel">Delete recipe?</h1>
+                <button type="button" class="btn-close close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                This action cannot be undone.
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="deleteConfirmBtn" class="btn" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" id="deleteConfirmBtn" class="btn">Delete</button>
+            </div>
+        </div>
+    </div>
 </div>
 
-</div>
+{% endblock %}
+
+{% block extras %}
+<script src="{% static 'js/delete_recipe.js' %}"></script>
 {% endblock %}
