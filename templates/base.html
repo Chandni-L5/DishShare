@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 {% load static %}
 {% url 'home' as home_url %}
 {% url 'account_login' as login_url %}
@@ -63,21 +64,22 @@
                     <a class="nav-link {% if request.path == logout_url %}active{% endif %}" aria-current="page"
                         href="{% url 'account_logout' %}">| Logout</a>
                 </li>
-                {% else %}
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'recipe_hub' %}">| Recipe Hub</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
-                            href="{% url 'account_signup' %}">| Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
-                            href="{% url 'account_login' %}">| Login</a>
-                    </li>
-                    {% endif %}
-                </ul>
+            </ul>
+            {% else %}
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'recipe_hub' %}">| Recipe Hub</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
+                        href="{% url 'account_signup' %}">| Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
+                        href="{% url 'account_login' %}">| Login</a>
+                </li>
+            </ul>
+            {% endif %}
         </div>
     </div>
 </nav>

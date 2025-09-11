@@ -115,13 +115,9 @@ These colours have been selected with the concept of 'farm fresh' in mind. They 
 The colours have also been assessed using a contrast checker to ensure they pass all visibility checks and improve user experience. Please see the [Accessibility](#accessibility) section of of this document for results of the contrast checks.
 
 ### Typography 
-[Google Fonts](https://fonts.google.com/) are used to apply the following fonts:
+[Google Fonts](https://fonts.google.com/) are used to apply Montserrat for page headings and Montserrat Alternates for body text. These fonts were chosen for their modern and clean appearance, which enhances readability and user experience.
 
-- Montserrat 
-<!-- insert images of examples and text to explain why this one has been selected -->
-
-- Montserrat Alternates
-<!-- insert images of examples and text to explain why this one has been selected -->
+![Image of fonts used](/documentation/images/bugs/font.webp)
 
 ### Imagery
 Some of the images used throughout the site were sourced from [pexels.com](https://www.pexels.com/). Images from this source are licensed for free use. I have also used [Sora](https://sora.chatgpt.com/explore) to create some AI images.
@@ -231,6 +227,8 @@ During the designing and styling process of the website, I have kept in mind to 
 - **Frontend:** HTML, CSS, Bootstrap, Poppers
 - **Backend:** Python, Django, JavaScript
 - **Database:** PostgreSQL
+
+![Image of languages used](/documentation/images/languages.webp)
 - **Development Tools:**
     - [GitHub](https://github.com/) - for version control
     - [VS Code](https://code.visualstudio.com/) - for development
@@ -248,10 +246,13 @@ During the designing and styling process of the website, I have kept in mind to 
 - **Django Packages**
     - django-allauth
     - django-crispy-forms
+    - django-summernote
+    - crispy-bootstrap5
+    - widgets-tweaks
+    - Cloudinary
     - Cloudinary storage
     - WhiteNoise
     - Gunicorn
-    - Pillow
 
 - - - 
 
@@ -378,12 +379,10 @@ Manual testing was implemented throughout the whole development process of this 
 <!--  -->
 
 ### Fixing Bugs
-<!--  -->
-disabling allauth auto messages to favour the js popup message
-- https://stackoverflow.com/questions/25744425/how-to-clean-up-django-login-message-from-framework?utm_source=chatgpt.com 
-- https://pypi.org/project/django-allauth/0.17.0/?utm_source=chatgpt.com
-- https://www.geeksforgeeks.org/python/python-extending-and-customizing-django-allauth/
-- https://stackoverflow.com/questions/45225384/django-messages-how-to-hide-specific-ones?utm_source=chatgpt.com
+
+A number of bugs were encountered and resolved during the development of this project. The most significant bugs are outlined below along with the steps taken to resolve them.
+
+You can view the full list of bugs encountered and resolved during the development of this project [here](/documentation/bugs.md).
 
 
 ### Lighthouse
@@ -407,10 +406,6 @@ disabling allauth auto messages to favour the js popup message
 
 ### Code Used
 <!--  -->
-- https://stackoverflow.com/questions/25744425/how-to-clean-up-django-login-message-from-framework?utm_source=chatgpt.com 
-- https://pypi.org/project/django-allauth/0.17.0/?utm_source=chatgpt.com
-- https://www.geeksforgeeks.org/python/python-extending-and-customizing-django-allauth/
-- https://stackoverflow.com/questions/45225384/django-messages-how-to-hide-specific-ones?utm_source=chatgpt.com
 
 ### Content
 - [Chatgpt](https://chatgpt.com/) 
@@ -439,6 +434,16 @@ I have used the following sources to help guide and structure the documentation 
 - [Amiresponsive](https://ui.dev/amiresponsive) - to show the website on a range of device screens
 - [coolors.co](https://coolors.co/contrast-checker/112a46-acc8e5) - to compare colour contrast
 - [Canva](https://www.canva.com/) - to create wireframes and ERD
+
+#### Resources
+- [stackoverflow.com](https://stackoverflow.com/questions/25744425/how-to-clean-up-django-login-message-from-framework?utm_source=chatgpt.com) - to manipulate the messages in Django
+- [allauth documentation](https://pypi.org/project/django-allauth/0.17.0/?utm_source=chatgpt.com)
+- [geeksforgeeks.org](https://www.geeksforgeeks.org/python/python-extending-and-customizing-django-allauth/)
+- [stackoverflow.com](https://stackoverflow.com/questions/45225384/django-messages-how-to-hide-specific-ones?utm_source=chatgpt.com) - to hide specific messages
+- [Django formsets documentation](https://docs.djangoproject.com/en/4.2/topics/forms/formsets/)
+- [Stack Overflow - Django inline formsets](https://stackoverflow.com/questions/29758558/inlineformset-factory-create-new-objects-and-edit-objects-after-created)
+- [Dennis Ivy - How to use Django inline formsets tutorial](https://www.youtube.com/watch?v=MRWFg30FmZQ)
+- [dev.to blog](https://dev.to/zxenia/django-inline-formsets-with-class-based-views-and-crispy-forms-14o6)
 
 ### Acknowledgements
 <!--  -->
