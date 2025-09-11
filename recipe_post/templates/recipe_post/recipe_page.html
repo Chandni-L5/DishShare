@@ -1,11 +1,11 @@
-{% extends "base.html" %} {% block content %}
-{% load static %}
-{% load crispy_forms_tags %}
-{% load static safe_media %}
+{% extends "base.html" %} 
+{% load static safe_media crispy_forms_tags %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'css/comment.css' %}">
 {% endblock %}
+
+{% block content %}
 
 <div class="container">
     <div class="row text-center">

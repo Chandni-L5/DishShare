@@ -51,7 +51,7 @@ I have used the MoSCoW prioritization method to categorize each user story accor
 
 During planning, the MoSCoW priorities were distributed as 50% Must have, 33% Should have, and 17% Could have.
 
-<!-- Update if any of the user stories have been moved to won't have -->
+[Please see 'Testing User Stories' section for the results and completion of the user stories.](#testing-user-stories)
 
 To support estimation, I have assigned story points based on a Fibonacci methodology, reflecting the relative complexity of each story. This scale will guide the prioritization and ordering of tasks during development.
 
@@ -201,6 +201,28 @@ Wireframes have been created with desktop, tablet and mobile viewports in mind. 
 ### General Features
 #### All Pages
 <!--  -->
+
+### Defensive Design & Permissions
+
+#### Allauth-gated actions
+- Only logged in users can submit, edit, delete posts and comments.
+- Admin users can delete inappropriate posts and comments from the admin interface.
+
+#### Ownership-based permissions
+- Only the author of a recipe or comment can edit or delete it.
+- Only the author of a recipe or comment can see the edit and delete buttons.
+- Users can access a personal list of their own submitted recipes. 
+- The application uses Django messages to provide feedback to the user on the success or failure of actions such as login, logout, submission, edit and deletion of posts and comments.
+
+#### Deletion confirmation
+- A custom modal is displayed to confirm deletion of a recipe or comment to prevent accidental deletions, on confirmation the user is redirected to an appropriate page and a success message is displayed.
+
+#### UX extras
+- A custom success message is displayed on login and logout to confirm the action has been successful.
+- When logged in the navbar displays the user's username to add an additional confirmation of the logged in status.
+- The navbar displays different options depending on the logged in status of the user.
+    - When logged out the options are: Home, Recipes, Login, Register
+    - When logged in the options are: Home, Recipes, Submit Recipe, Your Recipes, Logout
 
 ### Accessibility 
 
@@ -376,7 +398,31 @@ Manual testing was implemented throughout the whole development process of this 
  Nearing the conclusion of the project I have implemented a more structured approach to the manual testing to verify that all the features have achieved the intended requirements and behave as expected under different conditions. The tests are based on the expected outcome of each feature and  the full breakdown of the manual tests are displayed [here](/documentation/manual_testing.md). 
 
 ### Testing User Stories
-<!--  -->
+
+| Requirement | User Story | Test Result |
+|------------|-------------------|------------|
+| 🟥 Must have | **Open a post** | 	✅ Pass |
+| 🟥 Must have | **Navbar and Footer** | 	✅ Pass |
+| 🟥 Must have | **Account registration** | ✅ Pass |
+| 🟥 Must have | **Responsive design** | 	✅ Pass |
+| 🟥 Must have | **Submit recipe posts** | 	✅ Pass |
+| 🟥 Must have | **Manage recipe posts** | 	✅ Pass |
+||||||
+| 🟦 Should have| **User submissions control** | ✅ Pass |
+| 🟦 Should have | **Modify/Delete comment** | 	✅ Pass |
+| 🟦 Should have| **Approve comments (Admin)** | 	✅ Pass |
+| 🟦 Should have| **Comment on a post** | ☑️ Partial Pass |
+||||||
+| 🟩 Could have | **Favorite recipes** | Not Implemented |
+| 🟩 Could have| **Like and dislike posts** | Not Implemented |
+
+The user stories are all complete apart from the 'like and dislike posts' and 'favorite recipes' features which have not been implemented due to time constraints. 
+
+In addition the acceptance criteria for the 'comment on a post' user story has only been partially met. The user is able to comment on a post and the comment is displayed once approved by an admin user. However, the user not able to reply to others comments as originally intended. 
+
+The overall distribution of the user stories has shifted slightly from the original estimation. The 'Must have' stories now represent 67% of the total, 'Should have' stories account for 33%, and 'Could have' stories remain unimplemented.
+
+--- 
 
 ### Fixing Bugs
 
@@ -444,6 +490,7 @@ I have used the following sources to help guide and structure the documentation 
 - [Stack Overflow - Django inline formsets](https://stackoverflow.com/questions/29758558/inlineformset-factory-create-new-objects-and-edit-objects-after-created)
 - [Dennis Ivy - How to use Django inline formsets tutorial](https://www.youtube.com/watch?v=MRWFg30FmZQ)
 - [dev.to blog](https://dev.to/zxenia/django-inline-formsets-with-class-based-views-and-crispy-forms-14o6)
+- [crispy forms documentation](https://django-crispy-forms.readthedocs.io/en/latest/crispy_tag_formsets.html#formset-forms-with-different-layouts)
 
 ### Acknowledgements
 <!--  -->

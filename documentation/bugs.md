@@ -27,6 +27,7 @@ I consulted the following resources to help implement these changes:
 - [Stack Overflow - Django inline formsets](https://stackoverflow.com/questions/29758558/inlineformset-factory-create-new-objects-and-edit-objects-after-created)
 - [Dennis Ivy - How to use Django inline formsets tutorial](https://www.youtube.com/watch?v=MRWFg30FmZQ)
 - [dev.to blog](https://dev.to/zxenia/django-inline-formsets-with-class-based-views-and-crispy-forms-14o6)
+- [crispy forms documentation](https://django-crispy-forms.readthedocs.io/en/latest/crispy_tag_formsets.html#formset-forms-with-different-layouts)
 
 ## 404 errors and other common error codes
  when accessing certain pages - resolved by creating custom error pages and updating the `settings.py` file to point to these templates. I have updated and tidied up `urls.py` to ensure that all paths are correctly defined and that any undefined paths are properly handled by the custom error pages.
