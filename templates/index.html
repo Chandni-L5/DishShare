@@ -28,13 +28,13 @@
             {% for post in recipepost_list %}
                 {% if forloop.counter <= 4 %}
                 {% with imgurl=post.image|safe_url %}
-                <div class="col-sm-6 col-md-3 mb-4" id="small-card">
+                <div class="col-sm-6 col-md-3 mb-4">
                     <a href="{% url 'recipe_page' post.slug %}" class="post-link">
-                        <div class="card h-100 d-flex flex-column" id="top-card-style">
+                        <div class="card h-100 d-flex flex-column">
                             {% if imgurl %}
-                            <img src="{{ imgurl }}" class="card-img-top h-200" id="img-index" alt="{{ post.title }}">
+                            <img src="{{ imgurl }}" class="card-img-top h-200 img-index" alt="{{ post.title }}">
                             {% else %}
-                            <img src="{% static 'images/placeholder.webp' %}" class="card-img-top h-200" id="img-index" alt="placeholder image">
+                            <img src="{% static 'images/placeholder.webp' %}" class="card-img-top h-200 img-index" alt="placeholder image">
                             {% endif %}
                             <div class="card-body d-flex flex-column">
                                 <h5 class="card-title">{{ post.title }}</h5>
@@ -48,6 +48,7 @@
             {% endfor %}
         </div>
     </div>
+    
 </div>
 
 {% endblock %}

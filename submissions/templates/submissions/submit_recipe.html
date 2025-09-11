@@ -23,10 +23,9 @@
             Your recipe will be reviewed by our admin team before being published.
             {% endif %}
         </h2>
-        <form method="post" enctype="multipart/form-data" novalidate>
+        <form id="recipe-form" method="post" enctype="multipart/form-data" novalidate>
             {% csrf_token %}
             {{ form|crispy }}
-
             <!-- Ingredients -->
             <h3 class="h5">Ingredients</h3>
             <p>List each ingredient on a new line.</p>
@@ -69,9 +68,9 @@
                     {% endwith %}
                 </div>
             </template>
-
-            <button type="button" id="add-ing" class="btn button-submit btn-sm mt-2">+ Add ingredient</button>
-
+            <div class="col-12 justify-content-start">
+                <button type="button" id="add-ing" class="btn button-submit btn-sm mt-2">+ Add ingredient</button>
+            </div>
 
             <!-- Method -->
             <h3 class="h5 mt-4">Method</h3>
@@ -116,54 +115,55 @@
                 </div>
 
             </template>
-
-            <button type="button" id="add-step" class="btn button-submit btn-sm mt-2">+ Add step</button>
+            <div class="col-12 justify-content-start">
+                <button type="button" id="add-step" class="btn button-submit btn-sm mt-2">+ Add step</button>
+            </div>
+            <!-- Buttons row INSIDE the form -->
             <div class="row">
+                <div class="{% if object %}col-6 mt-1 text-center{% else %}col-12 mt-1 text-center{% endif %} mb-2">
+                    <button type="submit" class="btn button-submit">
+                        {% if object %}Save changes{% else %}Submit{% endif %}
+                    </button>
+                </div>
                 {% if object %}
-                <div class="col-6 mt-1 text-center">
-                    {% else %}
-                    <div class="col-12 mt-1 text-center">
-                        {% endif %}
-                        <button type="submit" class="btn button-submit">
-                            {% if object %}
-                            Save changes
-                            {% else %}
-                            Submit
-                            {% endif %}
-                        </button>
-                    </div>
+                <div class="col-6 mt-1 mb-2 text-center">
+                    <button type="button" class="button-submit rounded js-delete-trigger" data-bs-toggle="modal"
+                        data-bs-target="#deleteRecipeModal" data-form="#delete-form-page">
+                        Delete
+                    </button>
+                </div>
+                {% endif %}
+            </div>
         </form>
-        <div class="col-6 mt-1 text-center">
-            {% if object %}
-            <form method="post" action="{% url 'recipe_delete' object.slug %}" class="d-inline" id="delete-form-page">
-                {% csrf_token %}
-                <button type="button" class="button-submit rounded js-delete-trigger" data-bs-toggle="modal"
-                    data-bs-target="#deleteRecipeModal" data-form="#delete-form-page">
-                    Delete
-                </button>
-            </form>
-            {% endif %}
+
+        {% if object %}
+        <!-- Separate delete form (not nested) -->
+        <form method="post" action="{% url 'recipe_delete' object.slug %}" class="d-inline" id="delete-form-page">
+            {% csrf_token %}
+        </form>
+        {% endif %}
+
+        <!-- delete recipe confirmation modal -->
+        <div class="modal fade" id="deleteRecipeModal" tabindex="-1" aria-hidden="true"
+            aria-labelledby="deleteRecipeModalLabel">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="deleteRecipeModalLabel">Delete recipe?</h1>
+                        <button type="button" class="btn-close close-btn" data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        This action cannot be undone.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn close-btn" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn close-btn" id="confirmDeleteBtn">Delete</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-
-<!-- delete recipe confirmation modal -->
-<div class="modal fade" id="deleteRecipeModal" tabindex="-1" aria-hidden="true" aria-labelledby="deleteRecipeModalLabel">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="deleteRecipeModalLabel">Delete recipe?</h1>
-        <button type="button" class="btn-close close-btn" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        This action cannot be undone.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn close-btn" data-bs-dismiss="modal">Cancel</button>
-        <button type="button" class="btn close-btn" id="confirmDeleteBtn">Delete</button>
-      </div>
-    </div>
-  </div>
 </div>
 
 {% endblock %}

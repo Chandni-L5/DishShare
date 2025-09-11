@@ -197,20 +197,10 @@ h1.display-4 {
     opacity: 0;
 }
 
-#img-index {
+.img-index {
     height: 200px;
     object-fit: cover;
     width: 100%;
-}
-
-#top-card-style {
-    background-color: var(--colour5);
-    border: 3px, solid, var(--colour1);
-}
-
-#top-card-style:hover {
-    transform: scale(1.05);
-    transition: transform 0.3s;
 }
 
 h5.card-title {
@@ -223,11 +213,6 @@ h5.card-title {
 
 /* Media query: phones (425 and down) */
 @media screen and (max-width: 425px) {
-
-    /* index.html */
-    #small-card {
-        padding-inline: 24px;
-    }
 
 }
 
