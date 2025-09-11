@@ -36,11 +36,15 @@ class CustomSignupFormTest(TestCase):
 
     def test_email_mismatch_sets_error_on_confirm_email_field(self):
         form = CustomSignupForm(
-            data=self.valid_data(email="user@example.com", confirm_email="other@example.com")
+            data=self.valid_data(
+                email="user@example.com", confirm_email="other@example.com"
+            )
         )
         self.assertFalse(form.is_valid())
         self.assertIn("confirm_email", form.errors)
-        self.assertTrue(any("match" in e.lower() for e in form.errors["confirm_email"]))
+        self.assertTrue(
+            any("match" in e.lower() for e in form.errors["confirm_email"])
+        )
 
     def test_password_mismatch_error(self):
         # Test that password mismatch raises an error on password2 field

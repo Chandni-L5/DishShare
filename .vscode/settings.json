@@ -34,6 +34,7 @@
         "pyparsing",
         "recipepost",
         "setuptools",
+        "signup",
         "socialaccount",
         "splitlines",
         "sqlparse",

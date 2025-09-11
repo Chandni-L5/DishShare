@@ -1,6 +1,6 @@
 # DishShare
 
-[DishShare](https://dishshare-d8c892b46f87.herokuapp.com/) is a Django based website designed to bring together a community of homecooks and amateur chefs. This platform provides users with the ability to create, share and discover new recipes whilst engaging with other users through comments, likes and dislikes. 
+[DishShare](https://dishshare-d8c892b46f87.herokuapp.com/) is a full-stack recipe sharing platform built with Django, designed to bring together a community of homecooks and amateur chefs. This platform provides users with the ability discover, submit, and manage their own recipes whilst engaging with other users through comments, likes and dislikes. 
 
 Whether you are seeking inspiration for your next meal or want to showcase your culinary creativity, DishShare makes it easier to connect with food lovers across the world at your fingertips. 
 
@@ -229,7 +229,11 @@ Wireframes have been created with desktop, tablet and mobile viewports in mind. 
 During the designing and styling process of the website, I have kept in mind to aim to make the page as user friendly and accessible as possible. I have achieved this by:
 
 * Semantic HTML -Use of descriptive alt attributes on the images used throughout the site. 
-
+* Use of ARIA labels to improve accessibility for screen readers.
+* Use of Bootstrap framework to ensure responsive design across different devices and screen sizes.
+* Use of legible fonts and appropriate font sizes to enhance readability.
+* Consistent navigation structure across all pages.
+* Alt text for all images.
 * I have checked the colour scheme used on the application using [coolors.co](https://coolors.co/contrast-checker/112a46-acc8e5) to assess the contrast of the colours used. 
 
 <details>
@@ -441,13 +445,23 @@ The code has been validated using the following tools:
 - [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) - to ensure CSS validity
 - [PEP8 Online](http://pep8online.com/) - to ensure Python code follows PEP8 standards
 - [Django Linter](https://pep8ci.herokuapp.com/) - to ensure Python
-- [Autoprefixer CSS](https://autoprefixer.github.io/) - to ensure CSS compatibility across different browsers
 
 [Please click here to view the validation checks and results.](/documentation/validation.md)
 
 --- 
-## Future Implementations
-<!--  -->
+## Final Summary & Future Implementations
+
+This project has been a valuable learning experience, allowing me to apply and expand my skills in Django and full-stack web development. I have gained a deeper understanding of database design, user authentication, and responsive design principles.
+
+I have successfully met its primary objectives, providing a functional and user-friendly platform for recipe sharing. However the criteria of the planned user stories have not been fully met due to time constraints.
+
+In future iterations, I would like to implement the following features:
+- Improve the commenting system to allow users to reply to others comments.
+- Implement the 'like and dislike' feature for posts.
+- Implement the 'favorite recipes' feature.
+- Add user profile pages to allow users to manage their account and view their activity.
+- Enhance the search and filtering capabilities to improve content discovery.
+
 --- 
 
 ## Credits
@@ -495,4 +509,4 @@ I have used the following sources to help guide and structure the documentation 
 - [crispy forms documentation](https://django-crispy-forms.readthedocs.io/en/latest/crispy_tag_formsets.html#formset-forms-with-different-layouts)
 
 ### Acknowledgements
-<!--  -->
+Special thanks to mentors and peers who provided valuable feedback and guidance during development.
