@@ -420,28 +420,30 @@ The user stories are all complete apart from the 'like and dislike posts' and 'f
 
 In addition the acceptance criteria for the 'comment on a post' user story has only been partially met. The user is able to comment on a post and the comment is displayed once approved by an admin user. However, the user not able to reply to others comments as originally intended. 
 
-The overall distribution of the user stories has shifted slightly from the original estimation. The 'Must have' stories now represent 67% of the total, 'Should have' stories account for 33%, and 'Could have' stories remain unimplemented.
+The overall distribution of the user stories has shifted slightly from the original estimation. The 'Must have' stories now represent 67% of the total, 'Should have' stories account for 33%, and 'Could have' stories remain unimplemented. 
 
---- 
-
-### Fixing Bugs
+### [Fixing Bugs](/documentation/bugs.md)
 
 A number of bugs were encountered and resolved during the development of this project. The most significant bugs are outlined below along with the steps taken to resolve them.
 
 You can view the full list of bugs encountered and resolved during the development of this project [here](/documentation/bugs.md).
 
 
-### Lighthouse
-<!--  -->
+### [Lighthouse](/documentation/lighthouse.md)
+Lighthouse has been used to test the performance, accessibility and best practices. The results of the tests have been used to identify areas for improvement and optimize the overall user experience.
 
-### Validation 
-<!--  -->
+Please click here to view the [Lighthouse reports](/documentation/lighthouse.md).
 
-### W3C HTML and CSS Testing 
-<!--  -->
+### [Validation](/documentation/validation.md) 
 
-### Autoprefixer CSS 
-<!--  -->
+The code has been validated using the following tools:
+- [W3C Markup Validation Service](https://validator.w3.org/) - to ensure HTML validity
+- [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) - to ensure CSS validity
+- [PEP8 Online](http://pep8online.com/) - to ensure Python code follows PEP8 standards
+- [Django Linter](https://pep8ci.herokuapp.com/) - to ensure Python
+- [Autoprefixer CSS](https://autoprefixer.github.io/) - to ensure CSS compatibility across different browsers
+
+[Please click here to view the validation checks and results.](/documentation/validation.md)
 
 --- 
 ## Future Implementations
