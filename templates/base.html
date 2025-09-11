@@ -1,13 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/base.css' %}">
-
 {% url 'home' as home_url %}
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
 
-<!DOCTYPE html>
-<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -23,7 +21,9 @@
     <!-- Global base.css -->
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <!-- Page-specific CSS -->
-    {% block extra_css %}{% endblock %}
+    {% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% endblock %}
 </head>
 
 <body class="d-flex flex-column h-100 main-bg" {% if post %}data-slug="{{ post.slug }}" {% endif %}></body>
@@ -124,11 +124,13 @@
 <footer id="footer-style" class="footer mt-auto py-3">
     <div class="m-0 text-center">
         <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="link-light link-opacity-50-hover"
-            aria-label="Visit our Facebook page (opens in a new tab)"><i class="fab fa-facebook-square ms-3 fs-3"></i></a>
+            aria-label="Visit our Facebook page (opens in a new tab)"><i
+                class="fab fa-facebook-square ms-3 fs-3"></i></a>
         <a href="https://www.twitter.com/" target="_blank" rel="noopener" class="link-light link-opacity-50-hover"
             aria-label="Visit our Twitter page (opens in a new tab)"><i class="fab fa-twitter-square ms-3 fs-3"></i></a>
         <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="link-light link-opacity-50-hover"
-            aria-label="Visit our Instagram page (opens in a new tab)"><i class="fab fa-instagram-square ms-3 fs-3"></i></a>
+            aria-label="Visit our Instagram page (opens in a new tab)"><i
+                class="fab fa-instagram-square ms-3 fs-3"></i></a>
     </div>
 </footer>
 <!-- Bootstrap JS Bundle -->
