@@ -1,20 +1,22 @@
 (() => {
   let formSelector = null;
 
-  document.addEventListener('click', (e) => {
-    const trigger = e.target.closest('.js-delete-trigger[data-form]');
-    if (trigger) {
-      formSelector = trigger.getAttribute('data-form');
-    }
-  });
+  const deleteModal = document.getElementById('deleteRecipeModal');
+  if (deleteModal) {
+    deleteModal.addEventListener('show.bs.modal', (event) => {
+      const trigger = event.relatedTarget;
+      formSelector = trigger ? trigger.dataset.form : null;
+    });
+  }
 
-  document.addEventListener('click', (e) => {
-    if (e.target.closest('#confirmDeleteBtn')) {
+  const confirmBtn = document.getElementById('confirmDeleteBtn');
+  if (confirmBtn) {
+    confirmBtn.addEventListener('click', () => {
       const form = formSelector ? document.querySelector(formSelector) : null;
       if (!form) { console.warn('[DeleteModal] Form not found:', formSelector); return; }
-      e.target.setAttribute('disabled', 'disabled');
+      confirmBtn.setAttribute('disabled', 'disabled');
       if (form.requestSubmit) form.requestSubmit(); else form.submit();
       formSelector = null;
-    }
-  });
+    });
+  }
 })();
