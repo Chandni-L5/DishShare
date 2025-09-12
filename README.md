@@ -610,7 +610,9 @@ Manual testing was implemented throughout the whole development process of this 
 
  This iterative approach helped to identify issues early and resolve them along the way. This has resulted in a more stable application as a whole. 
 
- Nearing the conclusion of the project I have implemented a more structured approach to the manual testing to verify that all the features have achieved the intended requirements and behave as expected under different conditions. The tests are based on the expected outcome of each feature and  the full breakdown of the manual tests are displayed [here](/documentation/manual_testing.md). 
+ Nearing the conclusion of the project I have implemented a more structured approach to the manual testing to verify that all the features have achieved the intended requirements and behave as expected under different conditions. The tests are based on the expected outcome of each feature and  the full breakdown of the manual tests are displayed [here](/documentation/manual_testing.md).
+
+ The manual testing was carried out on a desktop computer, laptop, tablet and mobile to ensure the responsive design works as intended across different devices and screen sizes without compromising usability. In addition the application was tested on different browsers including Chrome, Safari and Edge to ensure cross-browser compatibility. Some anomalies were identified in the style displayed, particularly in Safari where some of the styles did not render such as the card borders. Due to time constraints and as the issue does not compromise the quality or useability of the site the issue was not resolved but have made a note of it for future improvements.
 
 ### Testing User Stories
 
@@ -671,6 +673,7 @@ In future iterations, I would like to implement the following features:
 - Implement the 'favorite recipes' feature.
 - Add user profile pages to allow users to manage their account and view their activity.
 - Enhance the search and filtering capabilities to improve content discovery.
+- Ensure consistent styling across all browsers, particularly Safari.
 
 --- 
 
