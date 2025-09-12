@@ -72,19 +72,20 @@ To support estimation, I have assigned story points based on a Fibonacci methodo
 | 🟩 Could have | **Favorite recipes** | AC1, AC2 | 3-5 | 🟡 Medium |
 | 🟩 Could have| **Like and dislike posts** | AC1, AC2, AC3 | 5-8 | 🟠 Large |
 
-#### Velocity
-<!-- To be completed after the first few iterations -->
-
 ### Database Design
 
 #### ERD
 ![Image of the ERD](/documentation/images/erd.webp)
-<!-- replace above image with the final up to date version -->
+
 The application is built around four main entities: 
 - **User** - A user can submit recipes, leave comments & favorite recipes and upvote or downvote once on many recipes.
 - **Recipe** - A Recipe belongs to one user but can receive many comments, favorites and upvotes/downvotes.
 - **Comment** - A comment belongs to one user and can be entered on a single recipe.
 - **Favorite** A favorite acts a bridge between User and Recipes. All the favorites will result in a personalized display for each user.
+
+As the project has progressed the above ERD has been deprecated as explained in the [testing bugs section](/documentation/bugs.md) and the [final summary](#final-summary--future-implementations). The updated ERD is shown below:
+
+![Image of the updated ERD model](/documentation/images/final-erd.webp)
 
 #### Relational Data Model
 - Each entity will be stored as a table in the relational CI database PostgreSQL.
