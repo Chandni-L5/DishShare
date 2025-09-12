@@ -225,21 +225,25 @@ The user account & authentication Epic and the User Engagement Epic are both con
 
 <details>
 <summary>Click to expand</summary>
+
 ##### Navbar as a logged out user
 <u>Larger screens</u>
 
 ![screenshot of navbar on larger screens](/documentation/images/features/lg-nav-lo.png)
 
 <u>Smaller screens</u>  
+
 ![screenshot of navbar on smaller screens](/documentation/images/features/sm-nav-lo.webp)
 ![gif of dropdown from navbar on smaller screens](/documentation/images/features/brg-lo.gif)
 
 #### Navbar as a logged in user
 <u>Larger screens</u>
+
 ![screenshot of navbar on larger screens](/documentation/images/features/lg-nav.webp)
 ![gif of dropdown from navbar on larger screens](/documentation/images/features/nav-drop.gif)
 
 <u>Smaller screens</u>  
+
 ![screenshot of navbar on smaller screens](/documentation/images/features/brg-sm.webp)
 </details>
 
@@ -248,6 +252,7 @@ The footer is consistent across all pages and contains links to social media. Th
 
 <details>
 <summary>Click to expand</summary>
+
 ![screenshot of footer](/documentation/images/features/lg-footer.png)
 ![screenshot of footer on smaller screens](/documentation/images/features/sm-footer.webp)
 </details>
@@ -263,6 +268,7 @@ The system will also display a status message in the top right of the screen whi
 
 <details>
 <summary>Click to expand</summary>
+
 ![screenshot of registration page](/documentation/images/features/registration.webp)
 </details>
 
@@ -272,6 +278,7 @@ The user is redirected to the homepage upon successful registration and a succes
 
 <details>
 <summary>Click to expand</summary>
+
 ![screenshot of login page](/documentation/images/features/login.webp)
 </details>
 
@@ -281,6 +288,7 @@ The login form requires the user to enter their username and password. If the cr
 
 <details>
 <summary>Click to expand</summary>
+
 ![screenshot of logout confirmation page](/documentation/images/features/logout.webp)
 </details>
 
@@ -301,9 +309,11 @@ When logged in the homepage displays a welcome message with the user's username 
 
 <details>
 <summary>Click to expand</summary>
+
 ![gif of homepage when logged in](/documentation/images/features/li-hm.webp)
 
 <u> Medium and smaller screens</u>
+
 ![screenshot of homepage when logged out on medium screen](/documentation/images/features/lo-tab-hm.webp) ![screenshot of homepage when logged out on medium screen](/documentation/images/features/li-tab-hm.webp) ![screenshot of homepage when logged in on smaller screen](/documentation/images/features/lo-mob-hm.webp) ![screenshot of homepage when logged in on smaller screen](/documentation/images/features/li-mob-hm.webp)
 
 </details>
@@ -315,6 +325,7 @@ This is a universal page that can be accessed by all users regardless of their l
 
 <details>
 <summary>Click to expand</summary>
+
 ![screenshot of recipe hub on larger screens](/documentation/images/features/rp-lg.webp)![screenshot of recipe hub on medium screens](/documentation/images/features/rp-tab.webp) ![screenshot of recipe hub on smaller screens](/documentation/images/features/rp-mob.webp)
 </details>
 
@@ -326,6 +337,7 @@ If the user is the author of the recipe, they will see buttons to edit and delet
 
 <details>
 <summary>Click to expand</summary>
+
 ![screenshot of recipe page on larger screen 1](/documentation/images/features/rp-pg.webp)
 ![screenshot of recipe page on larger screen 2](/documentation/images/features/rp-web.webp) ![screenshot of recipe page on medium screen 1](/documentation/images/features/rp-tab1.webp) ![screenshot of recipe page on medium screen 2](/documentation/images/features/rp-tab2.webp) ![screenshot of recipe page on smaller screen 1](/documentation/images/features/rp-mob1.webp) ![screenshot of recipe page on smaller screen 2](/documentation/images/features/rp-mob2.webp)
 </details>
@@ -337,6 +349,7 @@ If the user is the author of the comment, they will see buttons to edit and dele
 
 <details>
 <summary>Click to expand</summary>
+
 ![screenshot of comments section 1](/documentation/images/features/comment.webp) ![screenshot of comments section 2](/documentation/images/features/comment-edit.webp)
 </details>
 
@@ -348,6 +361,7 @@ The form includes validation to ensure that all fields are filled out correctly.
 
 <details>
 <summary>Click to expand</summary>
+
 ![gif of submission form on a mobile screen](/documentation/images/features/form.gif)
 ![screenshot of submission form on medium screens](/documentation/images/features/sub-tab.webp) ![screenshot of submission form on larger screens](/documentation/images/features/sub-web.webp)
 </details>
@@ -356,6 +370,7 @@ The user also has the ability to edit and delete their own recipes from the 'my 
 
 <details>
 <summary>Click to expand</summary>
+
 ![screenshot of edit form on larger screen](/documentation/images/features/edit1.webp) ![screenshot of edit form on larger screen](/documentation/images/features/edit2.webp)
 </details>
 
@@ -364,6 +379,7 @@ A custom modal is displayed to confirm deletion of a recipe and comments to prev
 
 <details>
 <summary>Click to expand</summary>
+
 ![screenshot of deletion modal](/documentation/images/features/rp-mod.webp) ![screenshot of comment modal](/documentation/images/features/cmt-mod.webp)
 </details>
 
@@ -374,6 +390,7 @@ This has been enhanced with custom styling and some JavaScript functionality to 
 
 <details>
 <summary>Click to expand</summary>
+
 ![screenshot of success message1](/documentation/images/features/cm-del-msg.webp) ![screenshot of success message2](/documentation/images/features/cm-suc-msg.webp) ![screenshot of success message3](/documentation/images/features/sub-msg.webp) ![screenshot of success message4](/documentation/images/features/up-msg.webp)
 </details>
 
@@ -386,6 +403,7 @@ When I initially embarked on this project the ingredients and method steps were 
 
 <details>
 <summary>Click to expand</summary>
+
 ![screenshot of admin interface landing page](/documentation/images/features/ad-lp.webp) 
 ![screenshot of admin interface users](/documentation/images/features/ad-user.webp) 
 ![screenshot of admin interface recipe model 1](/documentation/images/features/ad-rp.webp) 
