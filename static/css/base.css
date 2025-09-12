@@ -32,6 +32,13 @@
 /* Global Styles */
 .post-link .card {
     background-color: var(--colour5);
+    border: 3px solid var(--colour2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.post-link .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 html,
