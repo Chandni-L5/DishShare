@@ -78,4 +78,4 @@ The Python code of the DishShare application has been validated using the [CI Pe
 || urls.py | ✅ Pass |
 || views.py | ✅ Pass |
 
-![CI Pep8 Linter Validation Result of app.py](/documentation/images/pep8-app.webp)
+![CI Pep8 Linter Validation Result of app.py](/documentation/images/pep8.webp)

@@ -6,6 +6,7 @@ Whether you are seeking inspiration for your next meal or want to showcase your 
 
 ![amiresponsive screenshot](/documentation/images/amiresponsive.webp)
 
+[Click here to view the deployed site.](https://dishshare-d8c892b46f87.herokuapp.com/)
 - - -
 
 ## User Experience (UX) & Agile Planning and Development
@@ -49,7 +50,7 @@ Epics have been condensed to bitesize user stories.
 
 I have used the MoSCoW prioritization method to categorize each user story according to the project requirements. These categories are also represented on the Kanban board with colored labels for easy reference by the development team. At the start of the project, 'Won’t have' items will not be applied, but this will be reassessed as progress is made.
 
-During planning, the MoSCoW priorities were distributed as 50% Must have, 33% Should have, and 17% Could have.
+During planning, the MoSCoW priorities were distributed as 46% Must have, 34% Should have, and 20% Could have.
 
 [Please see 'Testing User Stories' section for the results and completion of the user stories.](#testing-user-stories)
 
@@ -67,8 +68,9 @@ To support estimation, I have assigned story points based on a Fibonacci methodo
 | 🟦 Should have| **User submissions control** | AC1, AC2, AC3 | 5 | 🟡 Medium |
 | 🟦 Should have | **Modify/Delete comment** | AC1, AC2 | 3 | 🟡 Medium |
 | 🟦 Should have| **Approve comments (Admin)** | AC1, AC2 | 3-5 | 🟡 Medium |
-| 🟦 Should have| **Comment on a post** | AC1, AC2, AC3 | 8 | 🟠 Large |
+| 🟦 Should have| **Comment on a post** | AC1, AC2, AC3 | 3 | 🟡 Medium |
 ||||||
+| 🟩 Could have | **Comment String** | AC1, AC2, AC3 | 3-5 | 🟡 Medium |
 | 🟩 Could have | **Favorite recipes** | AC1, AC2 | 3-5 | 🟡 Medium |
 | 🟩 Could have| **Like and dislike posts** | AC1, AC2, AC3 | 5-8 | 🟠 Large |
 
@@ -83,9 +85,14 @@ The application is built around four main entities:
 - **Comment** - A comment belongs to one user and can be entered on a single recipe.
 - **Favorite** A favorite acts a bridge between User and Recipes. All the favorites will result in a personalized display for each user.
 
-As the project has progressed the above ERD has been deprecated as explained in the [testing bugs section](/documentation/bugs.md) and the [final summary](#final-summary--future-implementations). The updated ERD is shown below:
+As the project has progressed the above ERD has been deprecated as further explained in the [testing bugs section](/documentation/bugs.md) and the [final summary](#final-summary--future-implementations). The updated ERD is shown below:
 
 ![Image of the updated ERD model](/documentation/images/final-erd.webp)
+
+The current version of the application is built around three main entities:
+- **User** - A user can submit recipes, leave comments.
+- **Recipe** - A Recipe belongs to one user but can receive many comments.
+- **Comment** - A comment belongs to one user and can be entered on a single recipe.
 
 #### Relational Data Model
 - Each entity will be stored as a table in the relational CI database PostgreSQL.
@@ -416,16 +423,15 @@ Manual testing was implemented throughout the whole development process of this 
 | 🟦 Should have| **User submissions control** | ✅ Pass |
 | 🟦 Should have | **Modify/Delete comment** | 	✅ Pass |
 | 🟦 Should have| **Approve comments (Admin)** | 	✅ Pass |
-| 🟦 Should have| **Comment on a post** | ☑️ Partial Pass |
+| 🟦 Should have| **Comment on a post** | ✅ Pass |
 ||||||
 | 🟩 Could have | **Favorite recipes** | Not Implemented |
 | 🟩 Could have| **Like and dislike posts** | Not Implemented |
+| 🟩 Could have | **Comment String** | Not Implemented |
 
 The user stories are all complete apart from the 'like and dislike posts' and 'favorite recipes' features which have not been implemented due to time constraints. 
 
 In addition the acceptance criteria for the 'comment on a post' user story has only been partially met. The user is able to comment on a post and the comment is displayed once approved by an admin user. However, the user not able to reply to others comments as originally intended. 
-
-The overall distribution of the user stories has shifted slightly from the original estimation. The 'Must have' stories now represent 67% of the total, 'Should have' stories account for 33%, and 'Could have' stories remain unimplemented. 
 
 ### [Fixing Bugs](/documentation/bugs.md)
 
@@ -466,10 +472,6 @@ In future iterations, I would like to implement the following features:
 --- 
 
 ## Credits
-
-### Code Used
-<!--  -->
-
 ### Content
 - [Chatgpt](https://chatgpt.com/) 
 - [Google fonts](https://fonts.google.com/) 
@@ -477,7 +479,7 @@ In future iterations, I would like to implement the following features:
 
 
 ### Media
-<!-- - [Font Awesome](https://fontawesome.com/) -->
+- [Font Awesome](https://fontawesome.com/)
 - [befunky.com](https://www.befunky.com/dashboard/) - to resize images
 - [pexels.com](https://www.pexels.com/) - to source images
 - [Sora](https://sora.chatgpt.com/explore) - to create AI images
@@ -499,10 +501,10 @@ I have used the following sources to help guide and structure the documentation 
 - [Canva](https://www.canva.com/) - to create wireframes and ERD
 
 #### Resources
-- [stackoverflow.com](https://stackoverflow.com/questions/25744425/how-to-clean-up-django-login-message-from-framework?utm_source=chatgpt.com) - to manipulate the messages in Django
+- [stackoverflow.com](https://stackoverflow.com/questions/25744425/how-to-clean-up-django-login-message-from-framework?utm_source=chatgpt.com) 
 - [allauth documentation](https://pypi.org/project/django-allauth/0.17.0/?utm_source=chatgpt.com)
 - [geeksforgeeks.org](https://www.geeksforgeeks.org/python/python-extending-and-customizing-django-allauth/)
-- [stackoverflow.com](https://stackoverflow.com/questions/45225384/django-messages-how-to-hide-specific-ones?utm_source=chatgpt.com) - to hide specific messages
+- [stackoverflow.com](https://stackoverflow.com/questions/45225384/django-messages-how-to-hide-specific-ones?utm_source=chatgpt.com)
 - [Django formsets documentation](https://docs.djangoproject.com/en/4.2/topics/forms/formsets/)
 - [Stack Overflow - Django inline formsets](https://stackoverflow.com/questions/29758558/inlineformset-factory-create-new-objects-and-edit-objects-after-created)
 - [Dennis Ivy - How to use Django inline formsets tutorial](https://www.youtube.com/watch?v=MRWFg30FmZQ)
