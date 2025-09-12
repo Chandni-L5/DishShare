@@ -206,9 +206,194 @@ Wireframes have been created with desktop, tablet and mobile viewports in mind. 
 - - - 
 
 ## Features
-### General Features
-#### All Pages
-<!--  -->
+
+### All Pages
+- Consistent navbar and footer across all pages 
+- Navbar contains links to the main pages of the site and changes depending on logged in status
+- Footer contains links to social media
+- Responsive design across different devices and screen sizes
+- Use of Bootstrap framework to ensure responsive design across different devices and screen sizes.
+- Use of legible fonts and appropriate font sizes to enhance readability.
+
+#### Navbar
+
+All pages contain a consistent navbar and footer. The navbar contains links to the main pages of the site and changes depending on logged in status and also includes some personalization specific to that user. The nav-links available to a logged in user ensures that users can only access pages that are specific to them as well as the universal pages available to all. The navbar is responsive and collapses into a burger menu on smaller screens.
+
+The navbar aligns with the overall colour scheme of the site and uses hover effects to enhance user experience.
+
+The user account & authentication Epic and the User Engagement Epic are both considered in the design of the navbar.
+
+<details>
+<summary>Click to expand</summary>
+##### Navbar as a logged out user
+<u>Larger screens</u>
+
+![screenshot of navbar on larger screens](/documentation/images/features/lg-nav-lo.png)
+
+<u>Smaller screens</u>  
+![screenshot of navbar on smaller screens](/documentation/images/features/sm-nav-lo.webp)
+![gif of dropdown from navbar on smaller screens](/documentation/images/features/brg-lo.gif)
+
+#### Navbar as a logged in user
+<u>Larger screens</u>
+![screenshot of navbar on larger screens](/documentation/images/features/lg-nav.webp)
+![gif of dropdown from navbar on larger screens](/documentation/images/features/nav-drop.gif)
+
+<u>Smaller screens</u>  
+![screenshot of navbar on smaller screens](/documentation/images/features/brg-sm.webp)
+</details>
+
+#### Footer
+The footer is consistent across all pages and contains links to social media. The footer aligns with the overall colour scheme of the site and uses hover effects to enhance user experience.
+
+<details>
+<summary>Click to expand</summary>
+![screenshot of footer](/documentation/images/features/lg-footer.png)
+![screenshot of footer on smaller screens](/documentation/images/features/sm-footer.webp)
+</details>
+
+### Account Management
+The account management functionality is provided by the Django Allauth package. This package provides a robust and secure authentication system that includes features such as login, logout and registration.
+
+The account management Epic is considered in the design of the account management functionality.
+
+The user is able to access the registration and login pages from the navbar when logged out. Once logged in the user is able to log out from the navbar. There are also some additional buttons displayed on the homepage to direct a user to the appropriate page depending on their logged in status.
+
+The system will also display a status message in the top right of the screen which displays for 5 seconds every time a page loads throughout the application. 
+
+<details>
+<summary>Click to expand</summary>
+![screenshot of registration page](/documentation/images/features/registration.webp)
+</details>
+
+All of the fields in the registration form are required. The password field has a minimum length of 8 characters and the email field must be a valid email address. The form will not be submitted if any of the fields are invalid or empty and an appropriate error message will be displayed.
+
+The user is redirected to the homepage upon successful registration and a success message is displayed. 
+
+<details>
+<summary>Click to expand</summary>
+![screenshot of login page](/documentation/images/features/login.webp)
+</details>
+
+The login form requires the user to enter their username and password. If the credentials are incorrect an appropriate error message is displayed. The user is redirected to the homepage upon successful login and a success message is displayed.
+
+![screenshot of login message](/documentation/images/features/li-msg.webp)
+
+<details>
+<summary>Click to expand</summary>
+![screenshot of logout confirmation page](/documentation/images/features/logout.webp)
+</details>
+
+When the user clicks on the logout button in the navbar they are redirected to a logout confirmation page. The user is logged out when they click the logout button on this page and a success message is displayed.
+![screenshot of logout message](/documentation/images/features/lo-msg.webp)
+
+#### Homepage
+
+The homepage displays different content depending on the logged in status of the user. 
+
+When logged out the homepage displays a welcome message and buttons to direct the user to the login or registration pages.
+
+![gif of homepage when logged out and displaying the random selection on refresh](/documentation/images/features/hm-rdm.gif)
+
+An additional feature implemented on the home page is the random recipe selection that is displayed and updated each time the page is refreshed. This feature encourages user engagement and exploration of the site. This was a last minute addition as I was unable to implement the like and dislike feature as originally intended which would in turn display the most liked recipes on the homepage.
+
+When logged in the homepage displays a welcome message with the user's username and buttons to direct the user to the recipes hub or to the submit recipe page.
+
+<details>
+<summary>Click to expand</summary>
+![gif of homepage when logged in](/documentation/images/features/li-hm.webp)
+
+<u> Medium and smaller screens</u>
+![screenshot of homepage when logged out on medium screen](/documentation/images/features/lo-tab-hm.webp) ![screenshot of homepage when logged out on medium screen](/documentation/images/features/li-tab-hm.webp) ![screenshot of homepage when logged in on smaller screen](/documentation/images/features/lo-mob-hm.webp) ![screenshot of homepage when logged in on smaller screen](/documentation/images/features/li-mob-hm.webp)
+
+</details>
+
+#### Recipe Hub 
+The recipe hub displays all published recipes in a card format. Each card displays the recipe title, image and a short description. The user is able to click on the card to view the full recipe.
+
+This is a universal page that can be accessed by all users regardless of their logged in status.
+
+<details>
+<summary>Click to expand</summary>
+![screenshot of recipe hub on larger screens](/documentation/images/features/rp-lg.webp)![screenshot of recipe hub on medium screens](/documentation/images/features/rp-tab.webp) ![screenshot of recipe hub on smaller screens](/documentation/images/features/rp-mob.webp)
+</details>
+
+
+#### Individual Recipe Page
+The individual recipe page displays the full recipe including the title, image, description, ingredients and method. The page also displays comments from other users and a form to submit a new comment.
+
+If the user is the author of the recipe, they will see buttons to edit and delete the recipe.
+
+<details>
+<summary>Click to expand</summary>
+![screenshot of recipe page on larger screen 1](/documentation/images/features/rp-pg.webp)
+![screenshot of recipe page on larger screen 2](/documentation/images/features/rp-web.webp) ![screenshot of recipe page on medium screen 1](/documentation/images/features/rp-tab1.webp) ![screenshot of recipe page on medium screen 2](/documentation/images/features/rp-tab2.webp) ![screenshot of recipe page on smaller screen 1](/documentation/images/features/rp-mob1.webp) ![screenshot of recipe page on smaller screen 2](/documentation/images/features/rp-mob2.webp)
+</details>
+
+#### Comments 
+The comments section allows users to leave comments on a recipe. The comments are displayed in reverse chronological order with the most recent comment at the top. There is also a count of the total number of comments displayed at the top of the section.
+
+If the user is the author of the comment, they will see buttons to edit and delete the comment. When selecting the edit button, the comment text is replaced with a form to edit the comment. The user is redirected to the same page upon successful edit and a success message is displayed.
+
+<details>
+<summary>Click to expand</summary>
+![screenshot of comments section 1](/documentation/images/features/comment.webp) ![screenshot of comments section 2](/documentation/images/features/comment-edit.webp)
+</details>
+
+#### Submission Form 
+
+The submission form allows logged in users to submit their own recipes. The form includes fields for the recipe title, description, image, ingredients and method. The ingredients and method fields are implemented using Django formsets to allow the user to add multiple ingredients and steps.
+
+The form includes validation to ensure that all fields are filled out correctly. The user is redirected to the recipe hub upon successful submission and a success message is displayed.
+
+<details>
+<summary>Click to expand</summary>
+![gif of submission form on a mobile screen](/documentation/images/features/form.gif)
+![screenshot of submission form on medium screens](/documentation/images/features/sub-tab.webp) ![screenshot of submission form on larger screens](/documentation/images/features/sub-web.webp)
+</details>
+
+The user also has the ability to edit and delete their own recipes from the 'my submissions' page. The edit form is pre-populated with the existing data and includes the same validation as the submission form. The user is redirected to the recipe detail page upon successful edit and a success message is displayed. 
+
+<details>
+<summary>Click to expand</summary>
+![screenshot of edit form on larger screen](/documentation/images/features/edit1.webp) ![screenshot of edit form on larger screen](/documentation/images/features/edit2.webp)
+</details>
+
+#### Modal
+A custom modal is displayed to confirm deletion of a recipe and comments to prevent accidental deletions. The modal includes buttons to confirm or cancel the deletion. On confirmation the user is redirected to the recipe hub and a success message is displayed.
+
+<details>
+<summary>Click to expand</summary>
+![screenshot of deletion modal](/documentation/images/features/rp-mod.webp) ![screenshot of comment modal](/documentation/images/features/cmt-mod.webp)
+</details>
+
+#### Success Messages
+The application uses Django messages to provide feedback to the user on the success or failure of actions such as submission, edit and deletion of posts and comments. 
+
+This has been enhanced with custom styling and some JavaScript functionality to match the overall design of the site and improve user experience.
+
+<details>
+<summary>Click to expand</summary>
+![screenshot of success message1](/documentation/images/features/cm-del-msg.webp) ![screenshot of success message2](/documentation/images/features/cm-suc-msg.webp) ![screenshot of success message3](/documentation/images/features/sub-msg.webp) ![screenshot of success message4](/documentation/images/features/up-msg.webp)
+</details>
+
+#### Admin Interface
+The admin interface allows admin users to manage the content of the site. Admin users can view, edit and delete recipes and comments, as well as keep track of the users. The admin interface is protected by Django's built-in authentication system to ensure that only authorized users can access it. 
+
+The layout of the recipe and comment models have been customized to improve usability for admin users. Particularly the recipe model which includes inline display of the ingredients and method steps similarly to the front end interface.
+
+When I initially embarked on this project the ingredients and method steps were set as `TextField`'s in the recipe model. However, as the project progressed and I began testing the functionality, I realized that this approach was not optimal for user experience. Find out more about this and the changes made to produce this current version of the application in the [Testing Bugs](/documentation/bugs.md) section.
+
+<details>
+<summary>Click to expand</summary>
+![screenshot of admin interface landing page](/documentation/images/features/ad-lp.webp) 
+![screenshot of admin interface users](/documentation/images/features/ad-user.webp) 
+![screenshot of admin interface recipe model 1](/documentation/images/features/ad-rp.webp) 
+![screenshot of admin interface recipe model 2](/documentation/images/features/ad-rp2.webp) 
+![screenshot of admin interface recipe model 3](/documentation/images/features/ad-rp3.webp) 
+![screenshot of admin interface comment model 1](/documentation/images/features/ad-cmt.webp) 
+![screenshot of admin interface comment model 2](/documentation/images/features/ad-cmt2.webp)
+</details>
 
 ### Defensive Design & Permissions
 
