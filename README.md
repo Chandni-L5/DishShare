@@ -224,7 +224,7 @@ The navbar aligns with the overall colour scheme of the site and uses hover effe
 The user account & authentication Epic and the User Engagement Epic are both considered in the design of the navbar.
 
 <details>
-<summary>Click to expand</summary>
+<summary>click to expand and scroll down</summary>
 
 ##### Navbar as a logged out user
 <u>Larger screens</u>
@@ -251,7 +251,7 @@ The user account & authentication Epic and the User Engagement Epic are both con
 The footer is consistent across all pages and contains links to social media. The footer aligns with the overall colour scheme of the site and uses hover effects to enhance user experience.
 
 <details>
-<summary>Click to expand</summary>
+<summary>click to expand and scroll down</summary>
 
 ![screenshot of footer](/documentation/images/features/lg-footer.png)
 ![screenshot of footer on smaller screens](/documentation/images/features/sm-footer.webp)
@@ -267,7 +267,7 @@ The user is able to access the registration and login pages from the navbar when
 The system will also display a status message in the top right of the screen which displays for 5 seconds every time a page loads throughout the application. 
 
 <details>
-<summary>Click to expand</summary>
+<summary>click to expand and scroll down</summary>
 
 ![screenshot of registration page](/documentation/images/features/registration.webp)
 </details>
@@ -277,7 +277,7 @@ All of the fields in the registration form are required. The password field has 
 The user is redirected to the homepage upon successful registration and a success message is displayed. 
 
 <details>
-<summary>Click to expand</summary>
+<summary>click to expand and scroll down</summary>
 
 ![screenshot of login page](/documentation/images/features/login.webp)
 </details>
@@ -287,7 +287,7 @@ The login form requires the user to enter their username and password. If the cr
 ![screenshot of login message](/documentation/images/features/li-msg.webp)
 
 <details>
-<summary>Click to expand</summary>
+<summary>click to expand and scroll down</summary>
 
 ![screenshot of logout confirmation page](/documentation/images/features/logout.webp)
 </details>
@@ -308,7 +308,7 @@ An additional feature implemented on the home page is the random recipe selectio
 When logged in the homepage displays a welcome message with the user's username and buttons to direct the user to the recipes hub or to the submit recipe page.
 
 <details>
-<summary>Click to expand</summary>
+<summary>click to expand and scroll down</summary>
 
 ![gif of homepage when logged in](/documentation/images/features/li-hm.webp)
 
@@ -324,7 +324,7 @@ The recipe hub displays all published recipes in a card format. Each card displa
 This is a universal page that can be accessed by all users regardless of their logged in status.
 
 <details>
-<summary>Click to expand</summary>
+<summary>click to expand and scroll down</summary>
 
 ![screenshot of recipe hub on larger screens](/documentation/images/features/rp-lg.webp)![screenshot of recipe hub on medium screens](/documentation/images/features/rp-tab.webp) ![screenshot of recipe hub on smaller screens](/documentation/images/features/rp-mob.webp)
 </details>
@@ -336,7 +336,7 @@ The individual recipe page displays the full recipe including the title, image, 
 If the user is the author of the recipe, they will see buttons to edit and delete the recipe.
 
 <details>
-<summary>Click to expand</summary>
+<summary>click to expand and scroll down</summary>
 
 ![screenshot of recipe page on larger screen 1](/documentation/images/features/rp-pg.webp)
 ![screenshot of recipe page on larger screen 2](/documentation/images/features/rp-web.webp) ![screenshot of recipe page on medium screen 1](/documentation/images/features/rp-tab1.webp) ![screenshot of recipe page on medium screen 2](/documentation/images/features/rp-tab2.webp) ![screenshot of recipe page on smaller screen 1](/documentation/images/features/rp-mob1.webp) ![screenshot of recipe page on smaller screen 2](/documentation/images/features/rp-mob2.webp)
@@ -348,7 +348,7 @@ The comments section allows users to leave comments on a recipe. The comments ar
 If the user is the author of the comment, they will see buttons to edit and delete the comment. When selecting the edit button, the comment text is replaced with a form to edit the comment. The user is redirected to the same page upon successful edit and a success message is displayed.
 
 <details>
-<summary>Click to expand</summary>
+<summary>click to expand and scroll down</summary>
 
 ![screenshot of comments section 1](/documentation/images/features/comment.webp) ![screenshot of comments section 2](/documentation/images/features/comment-edit.webp)
 </details>
@@ -360,7 +360,7 @@ The submission form allows logged in users to submit their own recipes. The form
 The form includes validation to ensure that all fields are filled out correctly. The user is redirected to the recipe hub upon successful submission and a success message is displayed.
 
 <details>
-<summary>Click to expand</summary>
+<summary>click to expand and scroll down</summary>
 
 ![gif of submission form on a mobile screen](/documentation/images/features/form.gif)
 ![screenshot of submission form on medium screens](/documentation/images/features/sub-tab.webp) ![screenshot of submission form on larger screens](/documentation/images/features/sub-web.webp)
@@ -369,7 +369,7 @@ The form includes validation to ensure that all fields are filled out correctly.
 The user also has the ability to edit and delete their own recipes from the 'my submissions' page. The edit form is pre-populated with the existing data and includes the same validation as the submission form. The user is redirected to the recipe detail page upon successful edit and a success message is displayed. 
 
 <details>
-<summary>Click to expand</summary>
+<summary>click to expand and scroll down</summary>
 
 ![screenshot of edit form on larger screen](/documentation/images/features/edit1.webp) ![screenshot of edit form on larger screen](/documentation/images/features/edit2.webp)
 </details>
@@ -378,7 +378,7 @@ The user also has the ability to edit and delete their own recipes from the 'my 
 A custom modal is displayed to confirm deletion of a recipe and comments to prevent accidental deletions. The modal includes buttons to confirm or cancel the deletion. On confirmation the user is redirected to the recipe hub and a success message is displayed.
 
 <details>
-<summary>Click to expand</summary>
+<summary>click to expand and scroll down</summary>
 
 ![screenshot of deletion modal](/documentation/images/features/rp-mod.webp) ![screenshot of comment modal](/documentation/images/features/cmt-mod.webp)
 </details>
@@ -389,7 +389,7 @@ The application uses Django messages to provide feedback to the user on the succ
 This has been enhanced with custom styling and some JavaScript functionality to match the overall design of the site and improve user experience.
 
 <details>
-<summary>Click to expand</summary>
+<summary>click to expand and scroll down</summary>
 
 ![screenshot of success message1](/documentation/images/features/cm-del-msg.webp) ![screenshot of success message2](/documentation/images/features/cm-suc-msg.webp) ![screenshot of success message3](/documentation/images/features/sub-msg.webp) ![screenshot of success message4](/documentation/images/features/up-msg.webp)
 </details>
@@ -402,7 +402,7 @@ The layout of the recipe and comment models have been customized to improve usab
 When I initially embarked on this project the ingredients and method steps were set as `TextField`'s in the recipe model. However, as the project progressed and I began testing the functionality, I realized that this approach was not optimal for user experience. Find out more about this and the changes made to produce this current version of the application in the [Testing Bugs](/documentation/bugs.md) section.
 
 <details>
-<summary>Click to expand</summary>
+<summary>click to expand and scroll down</summary>
 
 ![screenshot of admin interface landing page](/documentation/images/features/ad-lp.webp) 
 ![screenshot of admin interface users](/documentation/images/features/ad-user.webp) 
