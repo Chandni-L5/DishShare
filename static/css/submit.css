@@ -1,22 +1,31 @@
-/* CSS Variables */
-:root {
-    --colour1: #651F1F; /*dark burgundy*/
-    --colour2: #8A3324; /*medium burgundy*/
-    --colour3: #F2E8CF; /*beige*/
-    --colour4: #45513F; /*dark sage*/
-    --colour5: #C2D9B5; /*light sage*/
-    --colour6: #213B26; /*dark green*/
-    --colour7: #A7C957; /*light green*/
-    --colour8: #DEFF97; /*vibrant green*/
+/* Submit Page Specific Styles */
+.card { display: flex; flex-direction: column; }
+.card-body { flex: 1 1 auto; }     /* body grows to fill space */
+.card-footer { margin-top: auto; } /* pushes footer to the bottom */
 
-    --font-dark: #1C2815; /*black green*/
-    --font-light: #FFFFFF; /*white*/
-
-    --font-family-base: 'Montserrat', sans-serif;
-    --font-family-heading: 'Montserrat Alternates', sans-serif;
+.card-img-top {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  display: block;
 }
 
-/* Submit Page Specific Styles */
+button,
+a.edit-btn {
+    background-color: transparent;
+    border: none;
+    text-decoration: underline;
+    color: var(--colour2);
+    font-weight: bold;
+    font-size: 18px;
+}
+
+button:hover,
+a.edit-btn:hover {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
 .button-submit {
     color: var(--colour2);
     font-weight: bold;

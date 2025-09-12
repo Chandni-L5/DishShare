@@ -48,16 +48,16 @@
         <!-- display recipe cards -->
         <div class="row justify-content-center mt-2">
             {% for recipe in recipes %}
-            <div class="col-sm-6 col-md-3 mb-4 post-link">
+            <div class="col-sm-6 col-md-3 mb-4 d-flex post-link">
                 <div class="card h-100 d-flex flex-column ">
                     <a class="post-link text-decoration-none"
                         {% if recipe.slug %}href="{% url 'recipe_page' recipe.slug %}" {% else %}href="#"
                         aria-disabled="true" {% endif %}>
                         {% with imgurl=recipe.image|safe_url %}
                         {% if imgurl %}
-                        <img src="{{ imgurl }}" class="card-img-top h-200 img-index" alt="{{ recipe.title }}">
+                        <img src="{{ imgurl }}" class="card-img-top img-index" alt="{{ recipe.title }}">
                         {% else %}
-                        <img src="{% static 'images/placeholder.webp' %}" class="card-img-top h-200 img-index"
+                        <img src="{% static 'images/placeholder.webp' %}" class="card-img-top img-index"
                             alt="placeholder image">
                         {% endif %}
                         {% endwith %}
@@ -68,16 +68,15 @@
                         </div>
                     </a>
 
-                    <div class="px-3 pb-3">
-                        <span class="text-end d-block">Created on:
-                            {{ recipe.created_on|date:"SHORT_DATE_FORMAT" }}</span>
-                        <span class="mt-2 d-block text-end">
+                    <div class="card-footer bg-transparent border-0 mt-auto px-3 pb-3 text-end">
+                        <div>Created on: {{ recipe.created_on|date:"SHORT_DATE_FORMAT" }}
+                        </div>
                             {% if recipe.slug %}
-                            <a href="{% url 'recipe_edit' recipe.slug %}"><button class="edit-btn">Edit</button></a>
+                            <a href="{% url 'recipe_edit' recipe.slug %}" class="edit-btn me-2">Edit</a>
                             <form method="post" action="{% url 'recipe_delete' recipe.slug %}" class="d-inline"
                                 id="delete-form-{{ forloop.counter }}">
                                 {% csrf_token %}
-                                <button type="button" class="edit-btn js-delete-trigger" data-bs-toggle="modal"
+                                <button type="button" class="edit-btn recipe-delete js-delete-trigger" data-bs-toggle="modal"
                                     data-bs-target="#deleteRecipeModal" data-form="#delete-form-{{ forloop.counter }}">
                                     Delete
                                 </button>

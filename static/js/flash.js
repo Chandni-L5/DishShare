@@ -1,4 +1,4 @@
-// script to hide the login status message after 20 seconds
+// script to hide the login status message after 5 seconds
 document.addEventListener('DOMContentLoaded', function() {
     const msg = document.getElementById('login-status');
     if (msg) {

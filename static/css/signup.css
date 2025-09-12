@@ -1,21 +1,3 @@
-/* CSS Variables */
-:root {
-    --colour1: #651F1F; /*dark burgundy*/
-    --colour2: #8A3324; /*medium burgundy*/
-    --colour3: #F2E8CF; /*beige*/
-    --colour4: #45513F; /*dark sage*/
-    --colour5: #C2D9B5; /*light sage*/
-    --colour6: #213B26; /*dark green*/
-    --colour7: #A7C957; /*light green*/
-    --colour8: #DEFF97; /*vibrant green*/
-
-    --font-dark: #1C2815; /*black green*/
-    --font-light: #FFFFFF; /*white*/
-
-    --font-family-base: 'Montserrat', sans-serif;
-    --font-family-heading: 'Montserrat Alternates', sans-serif;
-}
-
 /* Signup Page Specific Styles */
 h1 {
   margin-block: 25px;
