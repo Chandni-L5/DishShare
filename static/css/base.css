@@ -30,6 +30,10 @@
 }
 
 /* Global Styles */
+.post-link .card {
+    background-color: var(--colour5);
+}
+
 html,
 body {
     font-family: var(--font-family-base);
