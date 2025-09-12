@@ -678,6 +678,7 @@ In future iterations, I would like to implement the following features:
 --- 
 
 ## Credits
+
 ### Content
 - [Chatgpt](https://chatgpt.com/) 
 - [Google fonts](https://fonts.google.com/) 
